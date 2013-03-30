@@ -1,0 +1,65 @@
+COMPLETE 1
+CASE 0
+BAD англ
+GOOD английский
+
+COMPLETE 1
+CASE 0
+BAD англе
+GOOD английском
+
+COMPLETE 1
+CASE 0
+BAD коллок
+GOOD коллоквиум
+
+COMPLETE 1
+CASE 0
+BAD короч
+GOOD короче
+
+COMPLETE 1
+CASE 0
+BAD кста
+GOOD кстати
+
+COMPLETE 1
+CASE 0
+BAD нада
+GOOD нужно
+
+COMPLETE 1
+CASE 0
+BAD пон
+GOOD понедельник
+
+COMPLETE 1
+CASE 0
+BAD прет
+GOOD привет
+
+COMPLETE 1
+CASE 0
+BAD скольки
+GOOD скольким
+
+COMPLETE 1
+CASE 0
+BAD трабла
+GOOD проблема
+
+COMPLETE 1
+CASE 0
+BAD универ
+GOOD университет
+
+COMPLETE 1
+CASE 0
+BAD щас
+GOOD сейчас
+
+COMPLETE 1
+CASE 0
+BAD ясн
+GOOD ясно
+

@@ -1,0 +1,14 @@
+[user]
+  name = kayrick
+  email = mr.kayrick@gmail.com
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  st = status
+  cm = commit
+[core]
+  excludesfile = ~/gitignore
+[push]
+	default = simple

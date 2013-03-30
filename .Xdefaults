@@ -1,0 +1,10 @@
+*UXTerm*font: -xos4-terminus-medium-r-normal-*-*-160-*-*-c-*-iso10646-1
+*XTerm*font: -xos4-terminus-medium-r-normal-*-*-160-*-*-c-*-iso10646-1
+*background:       black
+*foreground:       white
+*metaSendsEscape: true
+*eightBitInput: false
+*xterm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+*XTerm*fullscreen: never
+*XTerm.omitTranslation: fullscreen
+*aterm*scrollBar: false

@@ -1,0 +1,1 @@
+[ -e ~/private/MOUNTED ] || encfs ~/.private ~/private

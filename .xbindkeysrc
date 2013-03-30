@@ -1,0 +1,23 @@
+"mpc next"
+Mod4 + Right
+
+"mpc prev"
+Mod4 + Left
+
+"mpc stop"
+Mod4 + Down
+
+"mpc toggle"
+Mod4 + Up
+
+"amixer -c 0 -- set Master playback 10%-"
+m:0x40 + comma
+
+"amixer -c 0 -- set Master playback 10%+"
+m:0x40 + period
+
+"amixer -c 0 -- set Master playback toggle"
+m:0x40 + slash
+
+"xlock -mode blank"
+Mod4 + b
