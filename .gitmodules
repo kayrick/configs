@@ -1,0 +1,3 @@
+[submodule "vim-plugins/todo.txt-vim"]
+	path = vim-plugins/todo.txt-vim
+	url = git://github.com/freitass/todo.txt-vim.git
