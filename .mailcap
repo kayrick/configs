@@ -1,19 +1,20 @@
 text/html; w3m -I %{charset} -dump %s; nametemplate=%s.html; copiousoutput
-application/vnd.ms-powerpoint; loimpress '%s' 
-text/shtml;firefox %s 
-text/doc; lowriter  %s
-text/rtf; lowriter %s
+application/vnd.ms-powerpoint; ooimpress '%s'
+text/shtml;firefox %s
+text/doc; oowriter  %s
+text/rtf; oowriter %s
 application/x-flac; mplayer '%s';
-application/rtf; lowriter '%s'
-application/msword; lowriter '%s'
-application/vnd.oasis.opendocument.text; lowriter '%s'
+application/rtf; oowriter '%s'
+application/msword; oowriter '%s'
+application/vnd.oasis.opendocument.text; oowriter '%s'
 application/pdf; evince '%s'
 application/x-dvi; evince %s
 application/postscript; evince %s
 image/vnd.djvu; evince '%s'
-application/vnd.ms-excel;localc %s
-application/vnd.oasis.opendocument.spreadsheet;localc %s
+application/vnd.ms-excel;oocalc %s
+application/vnd.oasis.opendocument.spreadsheet;oocalc %s
 video/x-msvideo; mplayer '%s';
 audio/flac; mplayer '%s'
-text/*; cat %s; copiousoutput
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; oowriter '%s'
+tex/*; cat %s; copiousoutput
 image/*; feh '%s'
