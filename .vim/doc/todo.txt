@@ -1,1 +1,1 @@
-/home/kayrick/vim-plugins/todo.txt-vim/doc/todo.txt
+/home/kayrick/git/todo.txt-vim/doc/todo.txt

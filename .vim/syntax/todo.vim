@@ -1,1 +1,1 @@
-/home/kayrick/vim-plugins/todo.txt-vim/syntax/todo.vim
+/home/kayrick/git/todo.txt-vim/syntax/todo.vim

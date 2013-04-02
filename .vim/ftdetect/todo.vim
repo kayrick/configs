@@ -1,1 +1,1 @@
-/home/kayrick/vim-plugins/todo.txt-vim/ftdetect/todo.vim
+/home/kayrick/git/todo.txt-vim/ftdetect/todo.vim
