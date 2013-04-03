@@ -1,4 +1,4 @@
-text/html; w3m -I %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput
 application/vnd.ms-powerpoint; ooimpress '%s'
 text/shtml;firefox %s
 text/doc; oowriter  %s
