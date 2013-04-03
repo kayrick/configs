@@ -4,3 +4,6 @@
 [submodule "git/todo.txt"]
 	path = git/todo.txt
 	url = git://github.com/ginatrapani/todo.txt-cli.git
+[submodule "git/vim-localrc"]
+	path = git/vim-localrc
+	url = git://github.com/thinca/vim-localrc.git
