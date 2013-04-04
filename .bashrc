@@ -1,4 +1,5 @@
 export EDITOR=vim
+export BROWSER=firefox
 export VISUAL=$EDITOR
 export LANG=en_US.UTF-8
 export TEXINPUTS=/home/kayrick/lib/latex:
