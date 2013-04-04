@@ -91,8 +91,8 @@ set index_format="%4C %Z %{%b %d} %-15.15F (%?l?%4l&%4c?) %s"
 
 subscribe gcc@gcc.gnu.org gcc-patches@gcc.gnu.org llvmdev@cs.uiuc.edu libc-help@sourceware.org
 
-macro index,pager \cb "<pipe-message> urlview<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose \cb "<pipe-entry> urlview<Enter>" "call urlscan to extract URLs out of a message"
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
 # -*-muttrc-*-
 
@@ -172,4 +172,4 @@ unignore Subject:
 macro attach W <save-entry><kill-line>~/Downloads/
 macro attach E <save-entry><kill-line>~/Downloads/<enter>y
 
-
+color body magenta yellow "(http|https|ftp)://[^ \">\t\r\n]*"
