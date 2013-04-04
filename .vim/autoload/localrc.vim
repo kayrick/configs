@@ -1,1 +1,0 @@
-/home/kayrick/git/vim-localrc/autoload/localrc.vim

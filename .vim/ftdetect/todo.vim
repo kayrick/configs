@@ -1,1 +1,0 @@
-/home/kayrick/git/todo.txt-vim/ftdetect/todo.vim
