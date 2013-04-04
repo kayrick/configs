@@ -22,10 +22,3 @@ setlocal comments=sO:*\ -,mO:\ \ \ ,exO:*/,s1:/*,mb:\ ,ex:*/
 
 set cpo-=C
 
-" Win32 can filter files in the browse dialog
-if has("gui_win32") && !exists("b:browsefilter")
-  let b:browsefilter = "C Source Files (*.c)\t*.c\n" .
-  \ "C Header Files (*.h)\t*.h\n" .
-  \ "All Files (*.*)\t*.*\n"
-endif
-
