@@ -1,15 +1,16 @@
 -- Standard awesome library
-require("awful")
+awful = require("awful")
 require("awful.autofocus")
-require("awful.rules")
+awful.rules = require("awful.rules")
 -- Theme handling library
-require("beautiful")
+beautiful = require("beautiful")
 -- Notification library
-require("naughty")
-vicious=require("vicious")
+naughty = require("naughty")
+vicious = require("vicious")
 
-require("scratchpad")
-require("scratch")
+scratch = require("scratch")
+
+wibox = require("wibox")
 
 
 -- {{{ Variable definitions
@@ -112,54 +113,30 @@ for s = 1, screen.count() do
 end
 -- }}}
 
--- {{{ Menu
--- Create a laucher widget and a main menu
--- myawesomemenu = {
---    { "manual", terminal .. " -e man awesome" },
---   { "edit config", editor_cmd .. " " .. awful.util.getdir("config") .. "/rc.lua" },
---   { "restart", awesome.restart },
---   { "quit", awesome.quit }
---}
-
---mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
---                                    { "open terminal", terminal }
---                                  }
---                        })
-
---mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
---                                     menu = mymainmenu })
--- }}}
-
-
-
--- {{{ Wibox
-
-
-
 -- Initialize widget
-memwidget = widget({ type = "textbox" })
+memwidget = wibox.widget.textbox()
 -- Register widget
 vicious.register(memwidget, vicious.widgets.mem, "[mem: $1%]", 13)
 
 -- Initialize widget
-cpuwidget = widget({ type = "textbox" })
+cpuwidget = wibox.widget.textbox()
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "[cpu: $1%]")
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock({ align = "right" })
+mytextclock = awful.widget.textclock()
 
-volumewidget = widget({ type = "textbox" })
+volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume, "[volume: $1% $2]", 2, "Master")
 
 -- Create a systray
-mysystray = widget({ type = "systray" })
+mysystray = wibox.widget.systray()
 
 -- Battery Widget
-mybat = widget ({ type = "textbox" })
+mybat = wibox.widget.textbox()
 vicious.register (mybat, vicious.widgets.bat, "[$1$2%]", 61, "BAT1")
 
-mpdwidget = widget({ type = "textbox" })
+mpdwidget = wibox.widget.textbox()
  vicious.register(mpdwidget, vicious.widgets.mpd,
     function (widget, args)
       if   args["{state}"] == "Stop" then return ""
@@ -209,7 +186,7 @@ mytasklist.buttons = awful.util.table.join(
 
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
-    mypromptbox[s] = awful.widget.prompt({ layout = awful.widget.layout.horizontal.leftright })
+    mypromptbox[s] = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
     mylayoutbox[s] = awful.widget.layoutbox(s)
@@ -219,34 +196,37 @@ for s = 1, screen.count() do
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     -- Create a taglist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
+
 
     -- Create a tasklist widget
-    mytasklist[s] = awful.widget.tasklist(function(c)
-                                              return awful.widget.tasklist.label.currenttags(c, s)
-                                          end, mytasklist.buttons)
+    mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
     -- Add widgets to the wibox - order matters
-    mywibox[s].widgets = {
-        {
-            --mylauncher,
-            mytaglist[s],
-            mypromptbox[s],
-            layout = awful.widget.layout.horizontal.leftright
-        },
-        mylayoutbox[s],
-        s == 1 and mysystray or nil,
-        memwidget,
-        cpuwidget,
-        volumewidget,
-        mytextclock,
-        mybat,
-        mpdwidget,
-        mytasklist[s],
-        layout = awful.widget.layout.horizontal.rightleft
-    }
+    -- Widgets that are aligned to the left
+    local left_layout = wibox.layout.fixed.horizontal()
+    left_layout:add(mytaglist[s])
+    left_layout:add(mypromptbox[s])
+
+    -- Widgets that are aligned to the right
+    local right_layout = wibox.layout.fixed.horizontal()
+    right_layout:add(volumewidget)
+    right_layout:add(mybat)
+    right_layout:add(mpdwidget)
+    right_layout:add(memwidget)
+    right_layout:add(cpuwidget)
+    right_layout:add(mytextclock)
+    right_layout:add(mylayoutbox[s])
+    if s == 1 then right_layout:add(wibox.widget.systray()) end
+
+    -- Now bring it all together (with the tasklist in the middle)
+    local layout = wibox.layout.align.horizontal()
+    layout:set_left(left_layout)
+    layout:set_middle(mytasklist[s])
+    layout:set_right(right_layout)
+    mywibox[s]:set_widget(layout)
 end
 -- }}}
 
@@ -286,9 +266,6 @@ globalkeys = awful.util.table.join(
 
 
 
-    awful.key({ modkey }, "o", function () scratchpad.toggle() end),
-    --awful.key({ modkey }, "i", function () scratch.drop("xterm -e ncmpc", "top", "right", 0.5, 0.5) end),
-    --awful.key({ modkey }, "i", function () scratch.drop("sonata", "top", "right", 0.6, 0.6) end),
     awful.key({ modkey }, "space", function () scratch.drop("xterm", "center", "center", 0.7, 0.6) end),
 
     awful.key({ modkey,           }, "d",
@@ -406,7 +383,6 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey,    }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey }, "p", function (c) scratchpad.set(c, 0.60, 0.60, true) end),
     awful.key({ modkey }, "m", function (c)
       c.maximized_horizontal = not c.maximized_horizontal
       c.maximized_vertical   = not c.maximized_vertical
