@@ -132,6 +132,9 @@ bind pager J sidebar-next
 bind pager K sidebar-prev
 bind pager l sidebar-open
 
+set sidebar_width=25
+set sidebar_visible=yes
+
 bind index,pager I imap-fetch-mail
 
 macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
