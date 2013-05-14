@@ -10,6 +10,7 @@ set confirmappend = no
 
 set folder = imaps://imap.gmail.com:993
 mailboxes =INBOX
+unmailboxes =[Gmail]All%20Mail
 unset record
 unset trash
 set postponed = "=[Gmail]/Drafts"
