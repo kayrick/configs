@@ -1,0 +1,155 @@
+set realname = "Alexey Kravets"
+
+set sendmail = "/usr/bin/msmtp"
+
+set delete = yes
+set confirmappend = no
+
+mailboxes =INBOX
+set copy = no
+set spoolfile = "=INBOX"
+
+set mime_forward=yes
+set mime_forward_rest=yes
+set mbox_type=Maildir
+
+set signature = "~/.signature"
+
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+
+
+set header_cache =~/.mutt/cache/headers
+set message_cachedir =~/.mutt/cache/bodies
+set certificate_file =~/.mutt/certificates
+
+set imap_keepalive = 900
+
+set rfc2047_parameters
+
+set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp"'
+
+set pager_index_lines=9     # 9 index mail lines on top when in page view
+set imap_check_subscribed
+set pgp_auto_decode
+
+set crypt_verify_sig=yes
+set pgp_autosign=yes
+
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r" 
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r" 
+
+bind editor <Tab> complete-query
+bind editor ^T complete
+
+unset imap_passive
+
+set mail_check = 120
+
+auto_view text/x-diff
+auto_view text/x-patch
+set allow_ansi
+
+color body green default "^diff \-.*"
+color body green default "^index [a-f0-9].*"
+color body green default "^\-\-\- .*"
+color body green default "^[\+]{3} .*"
+color body cyan default "^[\+][^\+]+.*"
+color body red  default "^\-[^\-]+.*"
+color body brightblue default "^@@ .*"
+
+unset collapse_unread      # don't collapse threads with unread mails
+set   uncollapse_jump      # jump to unread message when uncollapse
+
+set   narrow_tree          # narrow threading trees
+set   pager_stop           # don't go to next message at end of message
+
+set nomark_old                          # Don't mark unread new msgs as old.
+#set edit_headers
+
+set index_format="%4C %Z %{%b %d} %-15.15F (%?l?%4l&%4c?) %s"
+
+subscribe gcc@gcc.gnu.org gcc-patches@gcc.gnu.org llvmdev@cs.uiuc.edu libc-help@sourceware.org
+
+macro index,pager \cl "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cl "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+macro index,pager \cb "<pipe-message> w3m -T text/html<Enter>" "call w3m to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> w3m -T text/html<Enter>" "call w3m to extract URLs out of a message"
+
+# -*-muttrc-*-
+
+# Palette for use with the Linux console.  Black background.
+
+color hdrdefault brightwhite black
+color quoted cyan black
+color signature blue black
+color attachment yellow black
+color message brightwhite black
+color error brightred black
+color indicator brightgreen black
+color status brightgreen blue
+color tree white black
+color normal white black
+color markers brightwhite black
+color search brightred black
+
+color tilde brightmagenta black
+color index blue black ~F
+color index brightyellow black "~N|~O"
+color index brightred black "~F"
+
+color sidebar_new brightyellow black
+
+# color body brightwhite black '\*+[^*]+\*+'
+# color body brightwhite black '_+[^_]+_+'
+
+bind index J sidebar-next
+bind index K sidebar-prev
+bind index l sidebar-open
+
+bind pager J sidebar-next
+bind pager K sidebar-prev
+bind pager l sidebar-open
+
+set sidebar_width=25
+set sidebar_visible=yes
+
+bind index,pager I imap-fetch-mail
+
+macro index,pager B '<enter-command>toggle sidebar_visible<enter>'
+
+bind index <Right> display-message
+bind index <Left> change-folder
+
+bind pager <Right> view-attachments
+bind pager <Left> exit
+
+bind pager <Up> previous-line
+bind pager <Down> next-line
+
+bind attach <Left> exit
+bind attach <Right> view-attach
+
+bind pager k previous-undeleted
+bind pager j next-undeleted
+
+bind index \\ limit
+
+auto_view text/html
+ignore *
+unignore From:
+unignore Subject:
+
+macro attach W <save-entry><kill-line>~/Downloads/
+macro attach E <save-entry><kill-line>~/Downloads/<enter>y
+
+color body magenta yellow "(http|https|ftp)://[^ \">\t\r\n]*"

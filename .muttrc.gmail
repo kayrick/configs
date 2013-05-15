@@ -1,0 +1,16 @@
+set imap_user = "mr.kayrick@gmail.com"
+set imap_pass = `grep mail.google.com ~/.netrc | awk '{print $6}'`
+set folder = imaps://imap.gmail.com:993
+unset record
+unset trash
+
+set postponed = "=[Gmail]/Drafts"
+set from = "mr.kayrick@gmail.com"
+set query_command="goobook query  \'%s\'"
+set mbox = "=[Gmail]/All Mail"
+
+macro index i "<change-folder>=INBOX<enter>" "Go to inbox"
+macro index gf "<change-folder>=[Gmail]/Starred<enter>" "Go to starred"
+
+macro index S "<copy-message>=[Gmail]/Starred<enter>" "Mark message as starred"
+macro pager S "<copy-message>=[Gmail]/Starred<enter>" "Mark message as starred"
