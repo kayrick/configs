@@ -83,6 +83,8 @@ macro attach,compose \cl "<pipe-entry> urlscan<Enter>" "call urlscan to extract 
 macro index,pager \cb "<pipe-message> w3m -T text/html<Enter>" "call w3m to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> w3m -T text/html<Enter>" "call w3m to extract URLs out of a message"
 
+macro index i "<change-folder>=INBOX<enter>" "Go to inbox"
+
 # -*-muttrc-*-
 
 # Palette for use with the Linux console.  Black background.
