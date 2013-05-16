@@ -15,9 +15,6 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias llrt='ls -lrt'
-alias 'saptd=sudo aptitude update'
-alias 'saptg=sudo aptitude upgrade'
-alias "sapt=sudo bash -c  'aptitude update;aptitude upgrade'"
 source /etc/environment
 
 PATH=$PATH:/home/kayrick/bin
@@ -33,3 +30,4 @@ export GPG_TTY
 
 PATH=~/bin:$PATH:/sbin/
 
+alias armmail='ps aux | grep -v grep | grep davmail > /dev/null || davmail&; mutt -F /home/kayrick/.muttrc.local'
