@@ -14,3 +14,6 @@ macro index gf "<change-folder>=[Gmail]/Starred<enter>" "Go to starred"
 
 macro index S "<copy-message>=[Gmail]/Starred<enter>" "Mark message as starred"
 macro pager S "<copy-message>=[Gmail]/Starred<enter>" "Mark message as starred"
+
+mailboxes =INBOX
+set imap_check_subscribed

@@ -1,0 +1,4 @@
+set folder = imap://localhost:1143
+set imap_pass = `grep owa ~/.netrc | awk '{print $6}'`
+set imap_user = `grep owa ~/.netrc | awk '{print $4}'`
+mailboxes =INBOX

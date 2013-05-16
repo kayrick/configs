@@ -5,7 +5,6 @@ set sendmail = "/usr/bin/msmtp"
 set delete = yes
 set confirmappend = no
 
-mailboxes =INBOX
 set copy = no
 set spoolfile = "=INBOX"
 
@@ -30,7 +29,6 @@ set rfc2047_parameters
 set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set nocp"'
 
 set pager_index_lines=9     # 9 index mail lines on top when in page view
-set imap_check_subscribed
 set pgp_auto_decode
 
 set crypt_verify_sig=yes
