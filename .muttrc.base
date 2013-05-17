@@ -153,3 +153,4 @@ macro attach W <save-entry><kill-line>~/Downloads/
 macro attach E <save-entry><kill-line>~/Downloads/<enter>y
 
 color body magenta yellow "(http|https|ftp)://[^ \">\t\r\n]*"
+alternative_order text/plain text/html
