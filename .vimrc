@@ -37,7 +37,8 @@ set indentkeys=!<Tab>,o,O
 map gr :grep <cword>
 
 map <C-o> :cn<CR>
-map <C-p> :cp<CR>
+map <C-k> :cp<CR>
+map <F2> :make<CR>
 map <C-l> :set number!<CR>
 map <C-Up> :next<CR>
 map <C-Down> :previous<CR>
