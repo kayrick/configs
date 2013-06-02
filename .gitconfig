@@ -13,5 +13,3 @@
   excludesfile = ~/gitignore
 [push]
 	default = simple
-[status]
-	showUntrackedFiles = no
