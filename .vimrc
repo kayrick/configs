@@ -54,3 +54,5 @@ set autochdir
 set pastetoggle=<C-e>
 set spelllang=en,ru
 set spell
+
+let g:localrc_filename = '.lvimrc'
