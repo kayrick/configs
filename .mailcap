@@ -1,4 +1,5 @@
 text/html; w3m -I %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+text/x-diff; vim '%s'
 application/vnd.ms-powerpoint; ooimpress '%s'
 text/shtml;firefox %s
 text/doc; oowriter  %s
