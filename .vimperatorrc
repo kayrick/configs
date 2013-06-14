@@ -1,8 +1,2 @@
 set autocomplete=false
-set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
-
-:autocmd LocationChange .* :js modes.passAllKeys=false
-:autocmd LocationChange reader\.google\.com :js modes.passAllKeys = true
-:autocmd LocationChange google\.com\/reader :js modes.passAllKeys = true
-:autocmd LocationChange kongregate\.com :js modes.passAllKeys = true
-:autocmd LocationChange mindmeister\.com :js modes.passAllKeys = true
+set gui=noaddons,nobookmarks,nomenu,nonavigation,notabs
