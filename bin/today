@@ -1,0 +1,48 @@
+#!/usr/bin/env perl
+
+use Time::Piece;
+use Time::Local;
+use Term::ANSIColor qw(:constants);
+
+my $fname;
+
+if (@ARGV == 0) {
+  $fname = $ENV{'HOME'} . "/Documents/TODO/Todo.txt";
+} else {
+  $fname = $ARGV[0];
+}
+
+my ($day, $month, $year) = (localtime())[3,4,5];
+my $today = timelocal(0,0,0,$day,$month,$year);
+
+my @tasks;
+my $FILE;
+
+if ($fname eq "-") {
+  $FILE = *STDIN;
+} else {
+  open $FILE, $fname or die $!;
+}
+
+while(<$FILE>) {
+  next if (/^x/);
+  if (/DUE:(\d\d).(\d\d).(\d\d\d\d)/) {
+    my $due = timelocal(0,0,0,$1,$2 - 1,$3 - 1900);
+    if ($due == $today) {
+      print BOLD, $_, RESET;
+    } else {
+      push @tasks, [$due, $_];
+    }
+  }
+}
+
+
+my @sorted = sort {$a->[0] <=> $b->[0]} @tasks;
+
+for my $idx (0 .. $#sorted) {
+  if ($sorted[$idx][0] < $today) {
+    print RED, $sorted[$idx][1], RESET;
+  } else {
+    print GREEN, $sorted[$idx][1], RESET;
+  }
+}
