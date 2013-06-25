@@ -56,3 +56,5 @@ set spelllang=en,ru
 set spell
 
 let g:localrc_filename = '.lvimrc'
+
+let Tex_UsePython=0
