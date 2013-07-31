@@ -129,6 +129,9 @@ mytextclock = awful.widget.textclock()
 volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume, "[volume: $1% $2]", 2, "Master")
 
+gmailwidget = wibox.widget.textbox()
+vicious.register(gmailwidget, vicious.widgets.gmail, "[Gmail: ${count}]")
+
 -- Create a systray
 mysystray = wibox.widget.systray()
 
@@ -215,6 +218,7 @@ for s = 1, screen.count() do
     right_layout:add(volumewidget)
     right_layout:add(mybat)
     right_layout:add(mpdwidget)
+    right_layout:add(gmailwidget)
     right_layout:add(memwidget)
     right_layout:add(cpuwidget)
     right_layout:add(mytextclock)
