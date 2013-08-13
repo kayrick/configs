@@ -31,3 +31,5 @@ export GPG_TTY
 PATH=~/bin:$PATH:/sbin/
 
 alias armmail='ps aux | grep -v grep | grep davmail > /dev/null || davmail&; mutt -F /home/kayrick/.muttrc.local'
+
+export _JAVA_AWT_WM_NONREPARENTING=1
