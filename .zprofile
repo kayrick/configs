@@ -9,7 +9,8 @@
 
 gox ()
 {
-  startx -- -nolisten tcp > ~/.x.log 2>&1 && logout&
+  startx -- -nolisten tcp > ~/.x.log 2>&1 &
+  logout
 }
 
 source ~/.bash_login
