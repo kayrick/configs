@@ -34,3 +34,4 @@ alias armmail='ps aux | grep -v grep | grep davmail > /dev/null || davmail&; mut
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export STEAM_RUNTIME=1
+export AWT_TOOLKIT="MToolkit"
