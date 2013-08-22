@@ -52,9 +52,14 @@ colorscheme elflord
 set grepprg=grep\ -nH\ $*
 set autochdir
 set pastetoggle=<C-e>
-set spelllang=en,ru
+set spelllang=en
 set spell
 
 let g:localrc_filename = '.lvimrc'
 
 let Tex_UsePython=0
+
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guicursor+=a:blinkon0
