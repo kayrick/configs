@@ -10,6 +10,7 @@
 gox ()
 {
   startx -- -nolisten tcp > ~/.x.log 2>&1 &
+  sleep 1
   logout
 }
 
