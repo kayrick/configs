@@ -32,24 +32,43 @@ sub print_or_store
   }
 }
 
+sub process_tag
+{
+  return $_[0]
+}
+
 sub update
 {
+  my $str = $_[0];
+  my $FILE = $_[1];
+  if ($str =~ m/^x/)
+  {
+    foreach ($str =~ /\@([\w_0-9]+)/g)
+    {
+      print process_tag $str, $_
+    }
+  } else {
+    print $FILE $str;
+  }
 }
 
 sub walk_file
 {
   my $FILE;
+  my $UFILE;
   my $fname = $_[0];
 
   if ($fname eq "-") {
     $FILE = *STDIN;
+    $UFILE = *STDOUT if ($update)
   } else {
     open $FILE, $fname or die $!;
+    open $UFILE, ">$fname.upd" if ($update)
   }
 
   while(<$FILE>) {
     print_or_store $_ if (not $quiet);
-    update $_ if ($update);
+    update $_, $UFILE if ($update);
   }
 }
 
