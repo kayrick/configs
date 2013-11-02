@@ -6,48 +6,52 @@ use Term::ANSIColor qw(:constants);
 use Getopt::Std;
 
 my $fname;
-
 my %options;
 
-$ok = getopts('u', \%options);
-
-if (@ARGV == 0) {
-  $fname = $ENV{'HOME'} . "/Documents/TODO/Todo.txt";
-} else {
-  $fname = $ARGV[0];
-}
+$ok = getopts('uq', \%options);
 
 my ($day, $month, $year) = (localtime())[3,4,5];
 my $today = timelocal(0,0,0,$day,$month,$year);
 
 my @tasks;
-my $FILE;
 
-if ($fname eq "-") {
-  $FILE = *STDIN;
-} else {
-  open $FILE, $fname or die $!;
-}
+sub walk_file
+{
+  my $FILE;
+  my $fname = $_[0];
 
-while(<$FILE>) {
-  next if (/^x/);
-  if (/due:(\d{4})-(\d{2}).(\d{2})/) {
-    my $due = timelocal(0,0,0,$3,$2 - 1,$1 - 1900);
-    if ($due == $today) {
-      print BOLD, $_, RESET;
+  if ($fname eq "-") {
+    $FILE = *STDIN;
+  } else {
+    open $FILE, $fname or die $!;
+  }
+
+  while(<$FILE>) {
+    next if (/^x/);
+    if (/due:(\d{4})-(\d{2}).(\d{2})/) {
+      my $due = timelocal(0,0,0,$3,$2 - 1,$1 - 1900);
+      if ($due == $today) {
+        print BOLD, $_, RESET;
+      } else {
+        push @tasks, [$due, $_];
+      }
+    }
+  }
+
+  my @sorted = sort {$a->[0] <=> $b->[0]} @tasks;
+
+  for my $idx (0 .. $#sorted) {
+    if ($sorted[$idx][0] < $today) {
+      print RED, $sorted[$idx][1], RESET;
     } else {
-      push @tasks, [$due, $_];
+      print GREEN, $sorted[$idx][1], RESET;
     }
   }
 }
 
-
-my @sorted = sort {$a->[0] <=> $b->[0]} @tasks;
-
-for my $idx (0 .. $#sorted) {
-  if ($sorted[$idx][0] < $today) {
-    print RED, $sorted[$idx][1], RESET;
-  } else {
-    print GREEN, $sorted[$idx][1], RESET;
-  }
+if (@ARGV == 0) {
+  walk_file $ENV{'HOME'} . "/Documents/TODO/Todo.txt";
+} else {
+  walk_file $ARGV[0];
 }
+
