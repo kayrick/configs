@@ -3,8 +3,13 @@
 use Time::Piece;
 use Time::Local;
 use Term::ANSIColor qw(:constants);
+use Getopt::Std;
 
 my $fname;
+
+my %options;
+
+$ok = getopts('u', \%options);
 
 if (@ARGV == 0) {
   $fname = $ENV{'HOME'} . "/Documents/TODO/Todo.txt";
