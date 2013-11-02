@@ -4,6 +4,7 @@ use Time::Piece;
 use Time::Local;
 use Term::ANSIColor qw(:constants);
 use Getopt::Std;
+use DateTime;
 
 my $fname;
 my %options;
@@ -13,17 +14,16 @@ $ok = getopts('uq', \%options);
 my $quiet = $options{q};
 my $update = $options{u};
 
-my ($day, $month, $year) = (localtime())[3,4,5];
-my $today = timelocal(0,0,0,$day,$month,$year);
+my $today = DateTime->today();
 
 my @tasks;
 
 sub get_due_date
 {
   if ($_[0] =~ m/due:(\d{4})-(\d{2}).(\d{2})/) {
-    return timelocal(0,0,0,$3,$2 - 1,$1 - 1900);
+    return DateTime->new (year=>$1, month => $2, day => $3);
   } else {
-    return "";
+    return undef;
   }
 }
 
@@ -32,7 +32,7 @@ sub print_or_store
   my $str = $_[0];
   return if ($str =~ m/^x/);
   my $due = get_due_date $str;
-  return if (not $due);
+  return if (not defined $due);
   if ($due == $today) {
     print BOLD, $_, RESET;
   } else {
@@ -54,16 +54,20 @@ sub reset_and_postpone_days
 {
   my $task = $_[0];
   my $due = get_due_date $task;
-  $due = $today is (not $due);
-
+  $due = $today if (not defined $due);
+  my $new_due = $due->add (days => $_[1]);
   reset_task $task;
   return $task;
 }
 
 sub reset_and_postpone_months
 {
-  reset_task $_[0];
-  return $_[0];
+  my $task = $_[0];
+  my $due = get_due_date $task;
+  $due = $today if (not defined $due);
+  my $new_due = $due->add (months => $_[1]);
+  reset_task $task;
+  return $task;
 }
 
 my %handlers = (
