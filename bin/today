@@ -10,10 +10,31 @@ my %options;
 
 $ok = getopts('uq', \%options);
 
+my $quiet = $options{q};
+my $update = $options{u};
+
 my ($day, $month, $year) = (localtime())[3,4,5];
 my $today = timelocal(0,0,0,$day,$month,$year);
 
 my @tasks;
+
+sub print_or_store
+{
+  my $str = $_[0];
+  return if ($str =~ m/^x/);
+  if ($str =~ m/due:(\d{4})-(\d{2}).(\d{2})/) {
+    my $due = timelocal(0,0,0,$3,$2 - 1,$1 - 1900);
+    if ($due == $today) {
+      print BOLD, $_, RESET;
+    } else {
+      push @tasks, [$due, $_];
+    }
+  }
+}
+
+sub update
+{
+}
 
 sub walk_file
 {
@@ -27,17 +48,12 @@ sub walk_file
   }
 
   while(<$FILE>) {
-    next if (/^x/);
-    if (/due:(\d{4})-(\d{2}).(\d{2})/) {
-      my $due = timelocal(0,0,0,$3,$2 - 1,$1 - 1900);
-      if ($due == $today) {
-        print BOLD, $_, RESET;
-      } else {
-        push @tasks, [$due, $_];
-      }
-    }
+    print_or_store $_ if (not $quiet);
+    update $_ if ($update);
   }
+}
 
+sub print_tasks{
   my @sorted = sort {$a->[0] <=> $b->[0]} @tasks;
 
   for my $idx (0 .. $#sorted) {
@@ -52,6 +68,9 @@ sub walk_file
 if (@ARGV == 0) {
   walk_file $ENV{'HOME'} . "/Documents/TODO/Todo.txt";
 } else {
-  walk_file $ARGV[0];
+  foreach (@ARGV) {
+    walk_file $_;
+  }
 }
 
+print_tasks if (not $quiet);
