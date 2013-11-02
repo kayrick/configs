@@ -18,17 +18,25 @@ my $today = timelocal(0,0,0,$day,$month,$year);
 
 my @tasks;
 
+sub get_due_date
+{
+  if ($_[0] =~ m/due:(\d{4})-(\d{2}).(\d{2})/) {
+    return timelocal(0,0,0,$3,$2 - 1,$1 - 1900);
+  } else {
+    return "";
+  }
+}
+
 sub print_or_store
 {
   my $str = $_[0];
   return if ($str =~ m/^x/);
-  if ($str =~ m/due:(\d{4})-(\d{2}).(\d{2})/) {
-    my $due = timelocal(0,0,0,$3,$2 - 1,$1 - 1900);
-    if ($due == $today) {
-      print BOLD, $_, RESET;
-    } else {
-      push @tasks, [$due, $_];
-    }
+  my $due = get_due_date $str;
+  return if (not $due);
+  if ($due == $today) {
+    print BOLD, $_, RESET;
+  } else {
+    push @tasks, [$due, $_];
   }
 }
 
@@ -37,19 +45,37 @@ sub preserve
   return $_[0];
 }
 
-sub update_due
+sub reset_task
 {
+  $_[0] =~ s/^x/(B)/;
+}
+
+sub reset_and_postpone_days
+{
+  my $task = $_[0];
+  my $due = get_due_date $task;
+  $due = $today is (not $due);
+
+  reset_task $task;
+  return $task;
+}
+
+sub reset_and_postpone_months
+{
+  reset_task $_[0];
+  return $_[0];
 }
 
 my %handlers = (
-  Weekly 
-)
+  "Weekly" => sub {reset_and_postpone_days $_[0], 7},
+  "Monthly" => sub {reset_and_postpone_months $_[0], 1},
+  "2Monthly" => sub {reset_and_postpone_months $_[0], 2}
+);
 
 sub process_tag
 {
-  switch ($_[1]) {
-  }
-  return $_[0]
+  return $handlers{$_[1]}->($_[0]) if exists ($handlers{$_[1]});
+  return "";
 }
 
 sub update
@@ -60,7 +86,7 @@ sub update
   {
     foreach ($str =~ /\@([\w_0-9]+)/g)
     {
-      my $tmp = process_tag $str, $_
+      my $tmp = process_tag $str, $_;
       print $FILE $tmp if ($tmp);
     }
   } else {
