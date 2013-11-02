@@ -32,8 +32,23 @@ sub print_or_store
   }
 }
 
+sub preserve
+{
+  return $_[0];
+}
+
+sub update_due
+{
+}
+
+my %handlers = (
+  Weekly 
+)
+
 sub process_tag
 {
+  switch ($_[1]) {
+  }
   return $_[0]
 }
 
@@ -45,7 +60,8 @@ sub update
   {
     foreach ($str =~ /\@([\w_0-9]+)/g)
     {
-      print process_tag $str, $_
+      my $tmp = process_tag $str, $_
+      print $FILE $tmp if ($tmp);
     }
   } else {
     print $FILE $str;
