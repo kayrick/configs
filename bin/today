@@ -80,6 +80,7 @@ sub reset_and_postpone_months
 }
 
 my %handlers = (
+  "Daily" => sub {reset_and_postpone_days $_[0], 1},
   "Weekly" => sub {reset_and_postpone_days $_[0], 7},
   "Monthly" => sub {reset_and_postpone_months $_[0], 1},
   "2Monthly" => sub {reset_and_postpone_months $_[0], 2}
