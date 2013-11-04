@@ -20,15 +20,22 @@ my @tasks;
 
 sub get_due_date
 {
-  if ($_[0] =~ m/due:(\d{4})-(\d{2}).(\d{2})/) {
+  if ($_[0] =~ m/due:(\d{4})-(\d{2})-(\d{2})/) {
     return DateTime->new (year=>$1, month => $2, day => $3);
   } else {
     return undef;
   }
 }
 
+sub update_date
+{
+  my $date = $_[1]->strftime('%Y-%m-%d');
+  $_[0] =~ s/due:\d{4}-\d{2}-\d{2}/due:$date/;
+}
+
 sub print_or_store
 {
+  return if ($quiet);
   my $str = $_[0];
   return if ($str =~ m/^x/);
   my $due = get_due_date $str;
@@ -57,6 +64,7 @@ sub reset_and_postpone_days
   $due = $today if (not defined $due);
   my $new_due = $due->add (days => $_[1]);
   reset_task $task;
+  update_date $task, $new_due;
   return $task;
 }
 
@@ -67,6 +75,7 @@ sub reset_and_postpone_months
   $due = $today if (not defined $due);
   my $new_due = $due->add (months => $_[1]);
   reset_task $task;
+  update_date $task, $new_due;
   return $task;
 }
 
@@ -92,6 +101,7 @@ sub update
     {
       my $tmp = process_tag $str, $_;
       print $FILE $tmp if ($tmp);
+      print_or_store $tmp if ($tmp);
     }
   } else {
     print $FILE $str;
@@ -103,19 +113,22 @@ sub walk_file
   my $FILE;
   my $UFILE;
   my $fname = $_[0];
+  my $buffer;
 
   if ($fname eq "-") {
     $FILE = *STDIN;
-    $UFILE = *STDOUT if ($update)
+    $UFILE = *STDOUT if ($update);
   } else {
     open $FILE, $fname or die $!;
-    open $UFILE, ">$fname.upd" if ($update)
+    $buffer = "$fname.upd";
+    open $UFILE, ">$buffer" if ($update);
   }
 
   while(<$FILE>) {
-    print_or_store $_ if (not $quiet);
     update $_, $UFILE if ($update);
+    print_or_store $_;
   }
+  rename $buffer, $fname if (defined $buffer);
 }
 
 sub print_tasks{
