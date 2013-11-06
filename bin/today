@@ -41,9 +41,9 @@ sub print_or_store
   my $due = get_due_date $str;
   return if (not defined $due);
   if ($due == $today) {
-    print BOLD, $_, RESET;
+    print BOLD, $str, RESET;
   } else {
-    push @tasks, [$due, $_];
+    push @tasks, [$due, $str];
   }
 }
 
