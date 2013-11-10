@@ -9,10 +9,11 @@ use DateTime;
 my $fname;
 my %options;
 
-$ok = getopts('uq', \%options);
+$ok = getopts('uqh', \%options);
 
 my $quiet = $options{q};
 my $update = $options{u};
+my $human = $options{h};
 
 my $today = DateTime->today();
 
@@ -41,6 +42,10 @@ sub print_or_store
   my $due = get_due_date $str;
   return if (not defined $due);
   if ($due == $today) {
+    if ($human) {
+      print BOLD, "Today\n", RESET;
+      $human = false;
+    }
     print BOLD, $str, RESET;
   } else {
     push @tasks, [$due, $str];
