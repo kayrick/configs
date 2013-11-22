@@ -15,6 +15,10 @@ my $quiet = $options{q};
 my $update = $options{u};
 my $human = $options{h};
 
+my $today_printed = 0;
+my $within_week_printed = 0;
+my $after_week_printed = 0;
+
 my $today = DateTime->today();
 
 my @tasks;
@@ -42,9 +46,9 @@ sub print_or_store
   my $due = get_due_date $str;
   return if (not defined $due);
   if ($due == $today) {
-    if ($human) {
+    if ($human and not $today_printed) {
       print BOLD, "Today\n", RESET;
-      $human = false;
+      $today_printed = 1;
     }
     print BOLD, $str, RESET;
   } else {
@@ -139,14 +143,36 @@ sub walk_file
   rename $buffer, $fname if (defined $buffer);
 }
 
+sub print_fancy
+{
+  my $diff = $_[0];
+  if ($diff > 1 and $diff <= 7 and $within_week_printed == 0) {
+    $within_week_printed = 1;
+    print BOLD, "Within a week\n", RESET;
+    return;
+  } 
+  if ($diff > 7 and $after_week_printed == 0) {
+    $after_week_printed = 1;
+    print BOLD, "Later\n", RESET;
+    return;
+  } 
+}
+
 sub print_tasks{
   my @sorted = sort {$a->[0] <=> $b->[0]} @tasks;
-
+  if ($human) {
+      print BOLD, "Tomorrow\n", RESET;
+  }
   for my $idx (0 .. $#sorted) {
-    if ($sorted[$idx][0] < $today) {
-      print RED, $sorted[$idx][1], RESET;
+    my $curr = $sorted[$idx][1];
+    my $due = $sorted[$idx][0];
+    if ($due < $today) {
+      print RED, $curr, RESET;
     } else {
-      print GREEN, $sorted[$idx][1], RESET;
+      if ($human) {
+        print_fancy ($due->delta_days($today)->in_units('days'));
+      }
+      print GREEN, $curr, RESET;
     }
   }
 }
