@@ -15,6 +15,7 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias llrt='ls -lrt'
+alias td='today ~/Documents/TODO/*'
 source /etc/environment
 
 PATH=$PATH:/home/kayrick/bin
