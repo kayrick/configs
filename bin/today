@@ -16,6 +16,7 @@ my $update = $options{u};
 my $human = $options{h};
 
 my $today_printed = 0;
+my $tomorow_printed = 0;
 my $within_week_printed = 0;
 my $after_week_printed = 0;
 
@@ -146,6 +147,11 @@ sub walk_file
 sub print_fancy
 {
   my $diff = $_[0];
+  if ($diff == 1 and $tomorow_printed == 0) {
+    $tomorow_printed = 1;
+    print BOLD, "Tomorrow\n", RESET;
+    return;
+  }
   if ($diff > 1 and $diff <= 7 and $within_week_printed == 0) {
     $within_week_printed = 1;
     print BOLD, "Within a week\n", RESET;
@@ -160,9 +166,6 @@ sub print_fancy
 
 sub print_tasks{
   my @sorted = sort {$a->[0] <=> $b->[0]} @tasks;
-  if ($human) {
-      print BOLD, "Tomorrow\n", RESET;
-  }
   for my $idx (0 .. $#sorted) {
     my $curr = $sorted[$idx][1];
     my $due = $sorted[$idx][0];
