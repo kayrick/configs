@@ -57,11 +57,6 @@ sub print_or_store
   }
 }
 
-sub preserve
-{
-  return $_[0];
-}
-
 sub reset_task
 {
   $_[0] =~ s/^x/(B)/;
@@ -78,43 +73,29 @@ sub reset_and_postpone_days
   return $task;
 }
 
-sub reset_and_postpone_months
+sub process_rec
 {
+  my $val = $_[1];
+  my $units =  $_[2];
   my $task = $_[0];
   my $due = get_due_date $task;
   $due = $today if (not defined $due);
-  my $new_due = $due->add (months => $_[1]);
+  my $new_due = $due->add ($units => $val);
   reset_task $task;
   update_date $task, $new_due;
   return $task;
-}
-
-my %handlers = (
-  "Daily" => sub {reset_and_postpone_days $_[0], 1},
-  "Weekly" => sub {reset_and_postpone_days $_[0], 7},
-  "Monthly" => sub {reset_and_postpone_months $_[0], 1},
-  "2Monthly" => sub {reset_and_postpone_months $_[0], 2}
-);
-
-sub process_tag
-{
-  return $handlers{$_[1]}->($_[0]) if exists ($handlers{$_[1]});
-  return "";
 }
 
 sub update
 {
   my $str = $_[0];
   my $FILE = $_[1];
-  if ($str =~ m/^x/)
+  if ($str =~ m/^x.*rec:([0-9]+)([dwmy])/)
   {
-    foreach ($str =~ /\@([\w_0-9]+)/g)
-    {
-      my $tmp = process_tag $str, $_;
-      if ($tmp) {
-        print $FILE $tmp;
-        print_or_store $tmp;
-      }
+    my $tmp = process_rec $str, $1, $2;
+    if ($tmp) {
+      print $FILE $tmp;
+      print_or_store $tmp;
     }
   } else {
     print $FILE $str;
