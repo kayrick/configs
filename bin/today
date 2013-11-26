@@ -62,16 +62,7 @@ sub reset_task
   $_[0] =~ s/^x/(B)/;
 }
 
-sub reset_and_postpone_days
-{
-  my $task = $_[0];
-  my $due = get_due_date $task;
-  $due = $today if (not defined $due);
-  my $new_due = $due->add (days => $_[1]);
-  reset_task $task;
-  update_date $task, $new_due;
-  return $task;
-}
+my %unit_map = (d => "days", m => "months", w => "weeks", y => "years");
 
 sub process_rec
 {
@@ -80,7 +71,7 @@ sub process_rec
   my $task = $_[0];
   my $due = get_due_date $task;
   $due = $today if (not defined $due);
-  my $new_due = $due->add ($units => $val);
+  my $new_due = $due->add ($unit_map{$units} => $val);
   reset_task $task;
   update_date $task, $new_due;
   return $task;
