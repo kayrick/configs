@@ -59,7 +59,7 @@ sub print_or_store
 
 sub reset_task
 {
-  $_[0] =~ s/^x/(B)/;
+  $_[0] =~ s/^x *//;
 }
 
 my %unit_map = (d => "days", m => "months", w => "weeks", y => "years");
