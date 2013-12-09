@@ -9,6 +9,7 @@
   st = status
   cm = commit
   root = !pwd
+  treelog = log --graph --decorate --pretty=oneline --abbrev-commit
 [core]
   excludesfile = ~/gitignore
 [push]
