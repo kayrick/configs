@@ -35,10 +35,12 @@ sub store
 
 my $today = DateTime->today();
 my $tomorow = DateTime->today()->add ("days" => 1);
+my $after_tomorow = DateTime->today()->add ("days" => 2);
 my $next_week = DateTime->today()->add ("weeks" => 1);
 
 push @due_tasks, [$today, "\n"];
 push @due_tasks, [$tomorow, "\n"];
+push @due_tasks, [$after_tomorow, "\n"];
 push @due_tasks, [$next_week, "\n"];
 
 while(<>)
