@@ -29,7 +29,7 @@ set imsearch=0
 
 highlight lCursor guifg=NONE guibg=Cyan
 
-let mapleader = "_"
+let mapleader = ","
 
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
