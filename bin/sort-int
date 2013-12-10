@@ -50,9 +50,21 @@ while(<>)
 
 my @sorted = sort {$a->[0] <=> $b->[0]} @due_tasks;
 
+my $whitespace = 1;
+
 foreach(@sorted)
 {
-  print @$_[1];
+  my $task = @$_[1];
+  if ($task =~ m/^\W*$/)
+  {
+    next if ($whitespace);
+    $whitespace = 1;
+  }
+  else
+  {
+    $whitespace = 0;
+  }
+  print $task;
 }
 
 foreach(@tasks)
