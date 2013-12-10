@@ -1,0 +1,55 @@
+#!/usr/bin/env perl
+
+use DateTime;
+
+my %unit_map = (d => "days", m => "months", w => "weeks", y => "years");
+
+my $today = DateTime->today();
+
+sub get_due_date
+{
+  if ($_[0] =~ m/due:(\d{4})-(\d{2})-(\d{2})/) {
+    return DateTime->new (year=>$1, month => $2, day => $3);
+  } else {
+    return $today;
+  }
+}
+
+sub update_date
+{
+  my $date = $_[1]->strftime('%Y-%m-%d');
+  $_[0] =~ s/due:\d{4}-\d{2}-\d{2}/due:$date/;
+}
+
+sub add_to_due
+{
+  my $task = $_[0];
+  my $val = $_[1];
+  my $units =  $_[2];
+  my $due = get_due_date $task;
+  my $new_due = $due->add ($unit_map{$units} => $val);
+  update_date $task, $new_due;
+  return $task;
+}
+
+sub postpone
+{
+  return add_to_due $_[0], $_[1], 'd';
+}
+
+sub complete
+{
+  my $task = $_[0];
+  if ($task =~ m/rec:([0-9]+)([dwmy])/) {
+    return add_to_due $task, $1, $2;
+  } else {
+    return "x $task";
+  }
+}
+
+my %actions = (postpone => \&postpone,
+               complete => \&complete);
+
+
+my $action = shift @ARGV;
+print $actions{$action}->(<STDIN>, @ARGV);

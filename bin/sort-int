@@ -1,0 +1,64 @@
+#!/usr/bin/env perl
+use strict;
+use DateTime;
+
+my @tasks;
+my @due_tasks;
+my @completed_tasks;
+
+sub get_due_date
+{
+  if ($_[0] =~ m/due:(\d{4})-(\d{2})-(\d{2})/) {
+    return DateTime->new (year=>$1, month => $2, day => $3);
+  } else {
+    return undef;
+  }
+}
+
+sub store
+{
+  my $task = $_[0];
+  return if ($task =~ m/^\W*$/);
+  if ($task =~ m/^x/)
+  {
+    push @completed_tasks, $task;
+    return;
+  }
+  my $due = get_due_date $task;
+  if (not defined $due)
+  {
+    push @tasks, $task;
+    return;
+  }
+  push @due_tasks, [$due, $task];
+}
+
+my $today = DateTime->today();
+my $tomorow = DateTime->today()->add ("days" => 1);
+my $next_week = DateTime->today()->add ("weeks" => 1);
+
+push @due_tasks, [$today, "\n"];
+push @due_tasks, [$tomorow, "\n"];
+push @due_tasks, [$next_week, "\n"];
+
+while(<>)
+{
+  store $_;
+}
+
+my @sorted = sort {$a->[0] <=> $b->[0]} @due_tasks;
+
+foreach(@sorted)
+{
+  print @$_[1];
+}
+
+foreach(@tasks)
+{
+  print $_;
+}
+
+foreach(@completed_tasks)
+{
+  print $_;
+}
