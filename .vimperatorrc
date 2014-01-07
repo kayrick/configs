@@ -1,2 +1,2 @@
 set autocomplete=false
-set gui=noaddons,nobookmarks,nomenu,nonavigation,notabs
+set gui=noaddons,nobookmarks,nomenu,nonavigation
