@@ -1,7 +1,7 @@
 "3.6 (created: 2012/12/24 13:05:56)
 
 set noautocomplete
-set gui=noaddons,nobookmarks,nomenu,nonavigation,notabs
+set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
 autocmd LocationChange .* js modes.passAllKeys = /feedly\.com/.test(buffer.URL)
 
 " vim: set ft=vimperator:
