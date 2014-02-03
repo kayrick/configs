@@ -5,8 +5,6 @@ parcellite --no-icon &
 
 setxkbmap -layout 'us,ru' -option 'grp:caps_toggle,grp_led:scroll'
 
-#pidgin &
-
-dropbox start &
+dropbox-cli start
 xset fp+ /usr/share/fonts/terminus/
 exec /usr/bin/awesome
