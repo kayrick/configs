@@ -1,1 +1,4 @@
+echo "Mounting private"
 [ -e ~/private/MOUNTED ] || encfs ~/.private ~/private
+echo "Mounting Dropbox"
+[ -e ~/Documents/MOUNTED ] || encfs ~/Dropbox/Documents/ ~/Documents
