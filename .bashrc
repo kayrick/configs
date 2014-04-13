@@ -20,7 +20,7 @@ source /etc/environment
 PATH=$PATH:/home/kayrick/bin
 export NEXUS_MAC=00:23:76:9C:A1:E5
 export SAL_USE_VCLPLUGIN=gen
-alias td='vim ~/Dropbox/Todo.txt'
+alias td='vim ~/Dropbox/todo/Todo.txt'
 
 GPG_TTY=`tty`
 export GPG_TTY 
