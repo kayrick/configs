@@ -2,4 +2,4 @@ mpc stop
 echo "Mounting private"
 [ -e ~/private/MOUNTED ] || encfs ~/.private ~/private
 echo "Mounting Dropbox"
-[ -e ~/Documents/MOUNTED ] || cat ~/private/DROPBOX | encfs ~/Dropbox/Documents/ ~/Documents -S
+[ -e ~/Documents/MOUNTED ] || cat ~/private/DROPBOX | encfs ~/Sync/Documents/ ~/Documents -S
