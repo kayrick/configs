@@ -1,3 +1,9 @@
 mpc stop
-[ -e ~/private/MOUNTED ] || encfs ~/.private ~/private
+
+while true
+do
+  [ -e ~/private/MOUNTED ] && break
+  encfs ~/.private ~/private && break
+done
+
 [ -e ~/Documents/MOUNTED ] || cat ~/private/DROPBOX | encfs ~/Sync/Documents/ ~/Documents -S
