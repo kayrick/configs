@@ -12,7 +12,10 @@ html-renderer "w3m -dump -T text/html"
 oldreader-login mr.kayrick@gmail.com
 oldreader-passwordfile /home/kayrick/private/oldreaderpass
 
-download-retries 4
+cleanup-on-quit yes
+
+user-agent "Liferea/1.4.14 (Linux; en_US.UTF8; http://liferea.sf.net/)"
+
 oldreader-show-special-feeds "no"
 
 bind-key RIGHT open
