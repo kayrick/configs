@@ -3,6 +3,9 @@ urls-source "oldreader"
 show-read-articles yes
 show-read-feeds no
 
+max-items 100
+oldreader-min-items 1
+
 browser firefox
 refresh-on-startup yes
 always-display-description yes
