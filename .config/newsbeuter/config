@@ -16,8 +16,7 @@ oldreader-login mr.kayrick@gmail.com
 oldreader-passwordfile /home/kayrick/private/oldreaderpass
 
 cleanup-on-quit yes
-
-user-agent "Liferea/1.4.14 (Linux; en_US.UTF8; http://liferea.sf.net/)"
+confirm-exit yes
 
 oldreader-show-special-feeds "no"
 
