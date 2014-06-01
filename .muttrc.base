@@ -144,6 +144,10 @@ bind pager j next-undeleted
 
 bind index \\ limit
 
+auto_view text/x-diff
+auto_view text/x-patch
+set allow_ansi
+
 auto_view text/html
 ignore *
 unignore From:
@@ -151,6 +155,14 @@ unignore Subject:
 
 macro attach W <save-entry><kill-line>~/Downloads/
 macro attach E <save-entry><kill-line>~/Downloads/<enter>y
+
+color body green default "^diff \-.*"
+color body green default "^index [a-f0-9].*"
+color body green default "^\-\-\- .*"
+color body green default "^[\+]{3} .*"
+color body cyan default "^[\+][^\+]+.*"
+color body red  default "^\-[^\-]+.*"
+color body brightblue default "^@@ .*"
 
 color body magenta yellow "(http|https|ftp)://[^ \">\t\r\n]*"
 alternative_order text/plain text/html

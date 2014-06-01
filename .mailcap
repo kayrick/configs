@@ -17,5 +17,7 @@ application/vnd.oasis.opendocument.spreadsheet;oocalc %s
 video/x-msvideo; mplayer '%s';
 audio/flac; mplayer '%s'
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; oowriter '%s'
+text/x-diff;  cat %s | colordiff;copiousoutput
+text/x-patch; cat %s | colordiff;copiousoutput
 tex/*; cat %s; copiousoutput
 image/*; feh '%s'
