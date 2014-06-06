@@ -15,7 +15,6 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias llrt='ls -lrt'
-alias rss='rm .local/share/newsbeuter/cache.db -f; newsbeuter'
 source /etc/environment
 
 PATH=$PATH:/home/kayrick/bin
