@@ -1,9 +1,5 @@
-urls-source "oldreader"
-
 show-read-articles yes
 show-read-feeds no
-
-oldreader-min-items 100
 
 browser firefox
 refresh-on-startup yes
@@ -11,13 +7,9 @@ always-display-description yes
 
 html-renderer "w3m -dump -T text/html"
 
-oldreader-login mr.kayrick@gmail.com
-oldreader-passwordfile /home/kayrick/private/oldreaderpass
-
-cleanup-on-quit yes
 confirm-exit yes
 
-oldreader-show-special-feeds "no"
+ignore-article "*" "age > 0"
 
 bind-key RIGHT open
 bind-key LEFT quit
