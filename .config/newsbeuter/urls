@@ -1,31 +1,32 @@
-http://origin.whatif.xkcd.com/feed.atom "Subscriptions"
-http://rss.slashdot.org/Slashdot/slashdot "Subscriptions"
-http://feeds.sciencedaily.com/sciencedaily/space_time "Subscriptions"
-http://lambda-the-ultimate.org/taxonomy/term/1/0/feed "Subscriptions"
-http://xkcd.com/atom.xml "Subscriptions"
-http://www.risk.ru/rss/ "Subscriptions"
-http://lambda-the-ultimate.org/rss.xml "Subscriptions"
-http://lwn.net/headlines/newrss "Subscriptions"
-http://feeds.feedburner.com/codinghorror "Subscriptions"
-http://developer.nvidia.com/blog/feed "Subscriptions"
-http://feeds.feedburner.com/KhronosorgNews "Subscriptions"
-http://git-blame.blogspot.com/feeds/posts/default "Subscriptions"
-http://www.martialwhat.com/feed/ "Subscriptions"
-https://news.ycombinator.com/rss "Subscriptions"
-http://blog.llvm.org/feeds/posts/default "Subscriptions"
-http://thecccc.org.uk/feed/ "Subscriptions"
-http://rss.nytimes.com/services/xml/rss/nyt/Europe.xml "Subscriptions"
-http://phoronix.com/rss.php "Subscriptions"
-http://blog.stephenwolfram.com/feed/ "Subscriptions"
-http://linux.org.ru/rss.jsp "Subscriptions"
-http://opennet.ru/opennews/opennews_6.rss "Subscriptions"
-http://feeds.finance.yahoo.com/rss/2.0/headline?s=ARM.L&region=US&lang=en-US "Subscriptions"
-http://projecteuler.net/rss2_euler.xml "Subscriptions"
-http://blag.xkcd.com/feed/ "Subscriptions"
-http://habrahabr.ru/rss/hubs/ "Subscriptions"
-http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss "Subscriptions"
-http://www.scrumalliance.org/rss?rss=articles "Subscriptions"
-http://feeds.bbci.co.uk/news/world/europe/rss.xml "Subscriptions"
-http://rss.nytimes.com/services/xml/rss/nyt/Space.xml "Subscriptions"
-http://www.ukclimbing.com/news/rss.php "Subscriptions"
-http://nvidianews.nvidia.com/rss/default.aspx?feedid=e05b7bcc-aa48-48e2-b4ab-2c2a8f98619b "Subscriptions"
+http://origin.whatif.xkcd.com/feed.atom
+http://rss.slashdot.org/Slashdot/slashdot
+http://feeds.sciencedaily.com/sciencedaily/space_time
+http://lambda-the-ultimate.org/taxonomy/term/1/0/feed
+http://xkcd.com/atom.xml
+http://www.risk.ru/rss/
+http://lambda-the-ultimate.org/rss.xml
+http://lwn.net/headlines/newrss
+http://feeds.feedburner.com/codinghorror
+http://developer.nvidia.com/blog/feed
+http://feeds.feedburner.com/KhronosorgNews
+http://git-blame.blogspot.com/feeds/posts/default
+http://www.martialwhat.com/feed/
+https://news.ycombinator.com/rss
+http://blog.llvm.org/feeds/posts/default
+http://thecccc.org.uk/feed/
+http://rss.nytimes.com/services/xml/rss/nyt/Europe.xml
+http://phoronix.com/rss.php
+http://blog.stephenwolfram.com/feed/
+http://linux.org.ru/rss.jsp
+http://opennet.ru/opennews/opennews_6.rss
+http://feeds.finance.yahoo.com/rss/2.0/headline?s=ARM.L&region=US&lang=en-US
+http://projecteuler.net/rss2_euler.xml
+http://blag.xkcd.com/feed/
+http://habrahabr.ru/rss/hubs/
+http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/news.rss
+http://www.scrumalliance.org/rss?rss=articles
+http://feeds.bbci.co.uk/news/world/europe/rss.xml
+http://rss.nytimes.com/services/xml/rss/nyt/Space.xml
+http://www.ukclimbing.com/news/rss.php
+http://nvidianews.nvidia.com/rss/default.aspx?feedid=e05b7bcc-aa48-48e2-b4ab-2c2a8f98619b
+http://lenta.ru/rss
