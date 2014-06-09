@@ -6,7 +6,6 @@ unset trash
 
 set postponed = "=[Gmail]/Drafts"
 set from = "mr.kayrick@gmail.com"
-set query_command="goobook query  \'%s\'"
 set mbox = "=[Gmail]/All Mail"
 
 macro index gf "<change-folder>=[Gmail]/Starred<enter>" "Go to starred"
