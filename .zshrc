@@ -65,3 +65,4 @@ PROMPT='%B%F{green}%n@%m%k %B%F{blue}%~ %b%f%k$(prompt_git_info)%B%F{blue}%#%b%f
 export ALTERNATE_EDITOR=$EDITOR
 
 eval $(gpg-agent --daemon)
+pal -r 2
