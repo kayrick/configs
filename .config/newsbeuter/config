@@ -15,3 +15,6 @@ bind-key RIGHT open
 bind-key LEFT quit
 bind-key j next
 bind-key k prev
+
+auto-reload yes
+reload-time 30
