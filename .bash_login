@@ -5,5 +5,3 @@ do
   [ -e ~/private/MOUNTED ] && break
   encfs ~/.private ~/private && break
 done
-
-[ -e ~/Documents/MOUNTED ] || cat ~/private/DROPBOX | encfs ~/Sync/Documents/ ~/Documents -S
