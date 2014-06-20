@@ -1,16 +1,20 @@
-[user]
-  name = kayrick
-  email = mr.kayrick@gmail.com
 [color]
   diff = auto
   status = auto
   branch = auto
 [alias]
   st = status
-  cm = commit
+  stu = status -uno
+  cm = commit -v
   root = !pwd
-  treelog = log --graph --decorate --pretty=oneline --abbrev-commit
+  flog = log --name-only
+  treelog =  log --oneline --decorate --all --graph
 [core]
   excludesfile = ~/gitignore
 [push]
-	default = simple
+  default = current
+[apply]
+  whitespace = error-all
+
+[include]
+  path = ~/.gitconfig.local

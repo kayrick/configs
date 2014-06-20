@@ -5,5 +5,6 @@ parcellite &
 
 setxkbmap -layout 'us,ru' -option 'grp:caps_toggle,grp_led:scroll'
 
-xset fp+ /usr/share/fonts/terminus/
+source ~/.xinitrc.local
+
 exec /usr/bin/awesome

@@ -4,5 +4,6 @@ set noautocomplete
 set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
 autocmd LocationChange .* js modes.passAllKeys = /feedly\.com/.test(buffer.URL)
 autocmd LocationChange .* js modes.passAllKeys = /theoldreader\.com/.test(buffer.URL)
+set defsearch=duck
 
 " vim: set ft=vimperator:
