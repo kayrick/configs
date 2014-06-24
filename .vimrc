@@ -52,7 +52,7 @@ colorscheme elflord
 set grepprg=grep\ -nH\ $*
 set autochdir
 set pastetoggle=<C-e>
-set spelllang=en
+set spelllang=en,ru
 set spell
 
 let g:localrc_filename = '.lvimrc'
