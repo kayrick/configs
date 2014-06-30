@@ -23,7 +23,10 @@ http://feeds.finance.yahoo.com/rss/2.0/headline?s=ARM.L&region=US&lang=en-US
 http://projecteuler.net/rss2_euler.xml
 http://blag.xkcd.com/feed/
 http://habrahabr.ru/rss/hubs/
-http://news.yandex.ru/index.rss
+http://ria.ru/export/rss2/politics/index.xml
+http://ria.ru/export/rss2/world_economy/index.xml
+http://ria.ru/export/rss2/unrests/index.xml
+http://ria.ru/export/rss2/disasters/index.xml
 http://www.scrumalliance.org/rss?rss=articles
 http://feeds.bbci.co.uk/news/world/europe/rss.xml
 http://rss.nytimes.com/services/xml/rss/nyt/Space.xml
