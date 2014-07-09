@@ -16,5 +16,10 @@
 [apply]
   whitespace = error-all
 
+[pull]
+  rebase = true
+
 [include]
   path = ~/.gitconfig.local
+[branch]
+	autosetuprebase = always
