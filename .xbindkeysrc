@@ -19,5 +19,5 @@ m:0x40 + period
 "amixer -c 0 -- set Master playback toggle"
 m:0x40 + slash
 
-"xlock -mode blank -font '-xos4-terminus-*-*-*-*-*-*-*-*-*-*-*-*' -echokeys -echokey '*'"
+"mpc stop; xlock -mode blank -font '-xos4-terminus-*-*-*-*-*-*-*-*-*-*-*-*' -echokeys -echokey '*'"
 Mod4 + b
