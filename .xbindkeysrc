@@ -16,7 +16,7 @@ m:0x40 + comma
 "amixer -c 0 -- set Master playback 10%+"
 m:0x40 + period
 
-"amixer -c 0 -- set Master playback toggle"
+"amixer -D pulse set Master Playback Switch toggle"
 m:0x40 + slash
 
 "mpc stop; xlock -mode blank -font '-xos4-terminus-*-*-*-*-*-*-*-*-*-*-*-*' -echokeys -echokey '*'"
