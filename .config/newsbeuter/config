@@ -9,8 +9,6 @@ html-renderer "w3m -dump -T text/html"
 
 confirm-exit yes
 
-ignore-article "*" "age > 0"
-
 bind-key RIGHT open
 bind-key LEFT quit
 bind-key j next
