@@ -69,4 +69,3 @@ zle -N edit-command-line
 bindkey '\C-x\C-e' edit-command-line
 
 eval $(gpg-agent --daemon)
-pal -r 2
