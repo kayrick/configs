@@ -1,0 +1,18 @@
+show-read-articles yes
+show-read-feeds no
+
+browser firefox
+refresh-on-startup yes
+always-display-description yes
+
+html-renderer "w3m -dump -T text/html"
+
+confirm-exit yes
+
+bind-key RIGHT open
+bind-key LEFT quit
+bind-key j next
+bind-key k prev
+
+auto-reload yes
+reload-time 30
