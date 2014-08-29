@@ -3,4 +3,6 @@
 set noautocomplete
 set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
 
+autocmd LocationChange .* javascript modes.passAllKeys = /feedly\.com/.test(buffer.URL)
+
 " vim: set ft=vimperator:
