@@ -1,5 +1,3 @@
-mpc stop
-
 while true
 do
   [ -e ~/private/MOUNTED ] && break
