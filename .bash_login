@@ -3,3 +3,4 @@ do
   [ -e ~/private/MOUNTED ] && break
   encfs ~/.private ~/private && break
 done
+cat ~/private/docs | encfs --stdinpass ~/Sync/docs ~/docs
