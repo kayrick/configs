@@ -77,7 +77,7 @@ set   pager_stop           # don't go to next message at end of message
 set nomark_old                          # Don't mark unread new msgs as old.
 #set edit_headers
 
-set index_format="%4C %Z %{%b %d} %-15.15F %-30.30A (%?l?%4l&%4c?) %s"
+set index_format="%4C %Z %{%b %d} %-50.50f (%?l?%4l&%4c?) %s"
 
 subscribe gcc@gcc.gnu.org gcc-patches@gcc.gnu.org llvmdev@cs.uiuc.edu libc-help@sourceware.org
 
