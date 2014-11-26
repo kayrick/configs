@@ -271,6 +271,7 @@ globalkeys = awful.util.table.join(
 
 
     awful.key({ modkey }, "space", function () scratch.drop("xterm", "center", "center", 0.7, 0.6) end),
+    awful.key({ modkey }, "i", function () scratch.drop("xterm /usr/bin/ncmpcpp", "center", "center", 0.7, 0.6) end),
 
     awful.key({ modkey,           }, "d",
         function ()
