@@ -1,3 +1,5 @@
+confirm-exit yes
+
 show-read-articles yes
 show-read-feeds no
 
@@ -6,8 +8,6 @@ refresh-on-startup no
 always-display-description yes
 
 html-renderer "w3m -dump -T text/html"
-
-confirm-exit no
 
 bind-key RIGHT open
 bind-key LEFT quit
