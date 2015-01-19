@@ -35,6 +35,7 @@ set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
 
 map gr :grep <cword>
+set statusline+=%F\ :+%l
 
 map <C-o> :cn<CR>
 map <C-k> :cp<CR>
