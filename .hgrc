@@ -1,0 +1,5 @@
+[diff]
+git = True
+[extensions]
+color =
+mq =
