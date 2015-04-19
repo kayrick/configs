@@ -47,6 +47,7 @@ map <C-Down> :previous<CR>
 au BufRead,BufNewFile *.g set syntax=antlr3
 au BufRead,BufNewFile *.cu set filetype=cpp
 au BufRead,BufNewFile *.txt set filetype=todo
+au BufRead,BufNewFile *.txt set ff=unix
 
 colorscheme elflord
 
