@@ -451,8 +451,6 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-                     { rule = { class = "Firefox" },
-                     properties = { tag = tags[1][2] } },
                      { rule = { class = "Mendeleydesktop" },
                      properties = { tag = tags[1][5] } },
                      { rule = { class = "Sonata" },
