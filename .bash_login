@@ -3,6 +3,6 @@ do
   [ -e ~/private/MOUNTED ] && break
   encfs ~/.private ~/private && break
 done
-cat ~/private/docs | encfs --stdinpass ~/Sync/docs ~/docs
+cat ~/private/docs | encfs --stdinpass ~/Dropbox/docs ~/docs
 
 eval $(gpg-agent --daemon)
