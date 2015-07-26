@@ -15,5 +15,4 @@ session_save = yes
 dht = auto
 dht_port = 31345
 peer_exchange = yes
-schedule = watch_directory,5,5,load_start=/home/kayrick/torrents/*.torrent  
 encryption = allow_incoming,enable_retry,prefer_plaintext
