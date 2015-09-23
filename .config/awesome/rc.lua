@@ -130,7 +130,7 @@ volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume, "[volume: $1% $2]", 2, "Master")
 
 gmailwidget = wibox.widget.textbox()
-vicious.register(gmailwidget, vicious.widgets.gmail, "[Gmail: ${count}]")
+vicious.register(gmailwidget, vicious.widgets.gmail, "[Gmail: ${count}]", 60)
 
 -- Create a systray
 mysystray = wibox.widget.systray()
