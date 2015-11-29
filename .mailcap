@@ -8,10 +8,10 @@ application/x-flac; mplayer '%s';
 application/rtf; oowriter '%s'
 application/msword; oowriter '%s'
 application/vnd.oasis.opendocument.text; oowriter '%s'
-application/pdf; evince '%s'
-application/x-dvi; evince %s
-application/postscript; evince %s
-image/vnd.djvu; evince '%s'
+application/pdf; zathura  '%s'
+application/x-dvi; zathura %s
+application/postscript; zathura %s
+image/vnd.djvu; zathura '%s'
 application/vnd.ms-excel;oocalc %s
 application/vnd.oasis.opendocument.spreadsheet;oocalc %s
 video/x-msvideo; mplayer '%s';
