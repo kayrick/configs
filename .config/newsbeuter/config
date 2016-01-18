@@ -1,6 +1,4 @@
-confirm-exit yes
-
-show-read-articles yes
+show-read-articles no
 show-read-feeds no
 
 browser firefox
@@ -11,6 +9,7 @@ html-renderer "w3m -dump -T text/html"
 
 bind-key RIGHT open
 bind-key LEFT quit
+unbind-key LEFT feedlist
 bind-key j next
 bind-key k prev
 
