@@ -18,7 +18,7 @@ wibox = require("wibox")
 beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "uxterm"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -270,8 +270,8 @@ globalkeys = awful.util.table.join(
 
 
 
-    awful.key({ modkey }, "space", function () scratch.drop("xterm", "center", "center", 0.7, 0.6) end),
-    awful.key({ modkey }, "i", function () scratch.drop("xterm /usr/bin/ncmpcpp", "center", "center", 0.7, 0.6) end),
+    awful.key({ modkey }, "space", function () scratch.drop("uxterm", "center", "center", 0.7, 0.6) end),
+    awful.key({ modkey }, "i", function () scratch.drop("uxterm /usr/bin/ncmpcpp", "center", "center", 0.7, 0.6) end),
 
     awful.key({ modkey,           }, "d",
         function ()
@@ -314,7 +314,7 @@ globalkeys = awful.util.table.join(
     --  Use the KDE Help Center for manual page display
     --  function (page) awful.util.spawn("khelpcenter man:" .. page, false) end,
     --  Use the terminal emulator for manual page display
-        function (page) awful.util.spawn("xterm -e man " .. page, false) end,
+        function (page) awful.util.spawn("uxterm -e man " .. page, false) end,
         function(cmd, cur_pos, ncomp)
             local pages = {}
             local m = 'IFS=: && find $(manpath||echo "$MANPATH") -type f -printf "%f\n"| cut -d. -f1'
