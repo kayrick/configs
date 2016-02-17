@@ -1,27 +1,30 @@
 [color]
-  diff = auto
-  status = auto
-  branch = auto
+    diff = auto
+    status = auto
+    branch = auto
 [alias]
-  st = status
-  stu = status -uno
-  cm = commit -v
-  root = !pwd
-  flog = log --name-only
-  treelog =  log --oneline --decorate --all --graph
+    st = status
+    stu = status -uno
+    cm = commit -v
+    root = !pwd
+    flog = log --name-only
+    treelog =  log --oneline --decorate --all --graph
+    d = difftool
 [core]
-  excludesfile = ~/gitignore
+    excludesfile = ~/gitignore
 [push]
-  default = current
+    default = current
 [apply]
-  whitespace = error-all
-
+    whitespace = warn
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
 [pull]
-  rebase = true
-
+    rebase = true
 [include]
-  path = ~/.gitconfig.local
+    path = ~/.gitconfig.local
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [sendemail]
-	smtpserver = /usr/bin/msmtp
+    smtpserver = /usr/bin/msmtp

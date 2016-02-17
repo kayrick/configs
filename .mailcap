@@ -1,14 +1,15 @@
 text/html; w3m -I %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+text/calendar; vcal -all '%s'; copiousoutput
 text/x-diff; vim '%s'
 application/vnd.ms-powerpoint; ooimpress '%s'
 text/shtml;firefox %s
-text/doc; oowriter  %s
-text/rtf; oowriter %s
+text/doc; soffice  %s
+text/rtf; soffice %s
 application/x-flac; mplayer '%s';
-application/rtf; oowriter '%s'
-application/msword; oowriter '%s'
-application/vnd.oasis.opendocument.text; oowriter '%s'
-application/pdf; zathura  '%s'
+application/rtf; soffice '%s'
+application/msword; soffice '%s'
+application/vnd.oasis.opendocument.text; soffice '%s'
+application/pdf; zathura '%s'
 application/x-dvi; zathura %s
 application/postscript; zathura %s
 image/vnd.djvu; zathura '%s'
@@ -16,7 +17,7 @@ application/vnd.ms-excel;oocalc %s
 application/vnd.oasis.opendocument.spreadsheet;oocalc %s
 video/x-msvideo; mplayer '%s';
 audio/flac; mplayer '%s'
-application/vnd.openxmlformats-officedocument.wordprocessingml.document; oowriter '%s'
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; soffice '%s'
 text/x-diff;  cat %s | colordiff;copiousoutput
 text/x-patch; cat %s | colordiff;copiousoutput
 tex/*; cat %s; copiousoutput

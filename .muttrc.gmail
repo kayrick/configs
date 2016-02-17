@@ -8,6 +8,9 @@ set postponed = "=[Gmail]/Drafts"
 set from = "mr.kayrick@gmail.com"
 set mbox = "=[Gmail]/All Mail"
 
+set query_command="goobook query  '%s'"
+set copy = no
+
 macro index gf "<change-folder>=[Gmail]/Starred<enter>" "Go to starred"
 
 macro index S "<copy-message>=[Gmail]/Starred<enter>" "Mark message as starred"

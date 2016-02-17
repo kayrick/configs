@@ -18,6 +18,7 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt autocd
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
+unsetopt histreduceblanks
 
 if [ -e $HOME/.ssh/known_hosts ]
 then
@@ -52,11 +53,6 @@ typeset -ga preexec_functions
 typeset -ga precmd_functions
 typeset -ga chpwd_functions
 
-# Append git functions needed for prompt.
-preexec_functions+='preexec_update_git_vars'
-precmd_functions+='precmd_update_git_vars'
-chpwd_functions+='chpwd_update_git_vars'
-
 compinit
 promptinit; 
 
@@ -66,4 +62,3 @@ export ALTERNATE_EDITOR=$EDITOR
 
 autoload -U edit-command-line
 zle -N edit-command-line
-bindkey '\C-x\C-e' edit-command-line

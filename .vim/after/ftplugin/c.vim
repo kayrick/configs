@@ -9,9 +9,9 @@
 let b:did_ftplugin = 1
 
 " Set various width parameters
-setlocal sw=2 ts=8 tw=78
+setlocal sw=4 ts=8 tw=78
 
-setlocal cinoptions=>2s,e-s,n-s,f0,{s,^-s,:s,=s,g0,+.5s,p2s,t0,(0 cindent
+setlocal cinoptions=g0:0(0
 
 " Set 'formatoptions' to break comment lines but not other lines,
 " and insert the comment leader when hitting <CR> or using "o".

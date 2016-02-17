@@ -7,7 +7,7 @@ class bb_printer(gdb.Command):
     try:
       gdb.execute ("call debug_bb (" + arg + ")")
     except RuntimeError as e:
-      print "error: exception occurred: %s" % e
+      print ("error: exception occurred: " + str(e))
 
 
 class gimple_stmt_printer(gdb.Command):
@@ -19,7 +19,7 @@ class gimple_stmt_printer(gdb.Command):
     try:
       gdb.execute ("call debug_gimple_stmt (" + arg + ")")
     except RuntimeError as e:
-      print "error: exception occurred: %s" % e
+      print ("error: exception occurred: %s" % e)
 
 
 class tree_printer(gdb.Command):
@@ -31,7 +31,7 @@ class tree_printer(gdb.Command):
     try:
       gdb.execute ("call debug_tree (" + arg + ")")
     except RuntimeError as e:
-      print "error: exception occurred: %s" % e
+      print ("error: exception occurred: %s" % e)
 
 
 class loop_printer(gdb.Command):
@@ -44,7 +44,7 @@ class loop_printer(gdb.Command):
     try:
       gdb.execute ("call debug_loop (" + arg + "," + self.num + ")")
     except RuntimeError as e:
-      print "error: exception occurred: %s" % e
+      print ("error: exception occurred: %s" % e)
   
 
 bb_printer()

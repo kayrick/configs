@@ -8,3 +8,5 @@
 *XTerm*fullscreen: never
 *XTerm.omitTranslation: fullscreen
 *aterm*scrollBar: false
+*Xterm*utf8: 1
+xterm*wideFont: -misc-fixed-medium-r-normal-ja-18-120-100-100-c-180-iso10646-1

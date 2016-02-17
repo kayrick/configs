@@ -3,6 +3,6 @@
 set noautocomplete
 set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
 
-autocmd LocationChange .* javascript modes.passAllKeys = /inoreader\.com/.test(buffer.URL)
+autocmd LocationChange .* javascript modes.passAllKeys = /eumail\.nvidia\.com/.test(buffer.URL)
 
 " vim: set ft=vimperator:
