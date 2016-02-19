@@ -7,7 +7,7 @@
     stu = status -uno
     cm = commit -v
     root = !pwd
-    flog = log --name-only
+    flog = log --name-status
     treelog =  log --oneline --decorate --all --graph
     d = difftool
 [core]

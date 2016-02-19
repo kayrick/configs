@@ -114,32 +114,22 @@ end
 -- }}}
 
 -- Initialize widget
-memwidget = wibox.widget.textbox()
+memwidget = widget({ type = "textbox" })
 -- Register widget
-vicious.register(memwidget, vicious.widgets.mem, "[mem: $1%]", 13)
+vicious.register(memwidget, vicious.widgets.mem, "[mem: $1%]", 30)
 
 -- Initialize widget
-cpuwidget = wibox.widget.textbox()
+cpuwidget = widget({ type = "textbox" })
 -- Register widget
 vicious.register(cpuwidget, vicious.widgets.cpu, "[cpu: $1%]")
 
 -- Create a textclock widget
 mytextclock = awful.widget.textclock()
 
-volumewidget = wibox.widget.textbox()
-vicious.register(volumewidget, vicious.widgets.volume, "[volume: $1% $2]", 2, "Master")
-
-gmailwidget = wibox.widget.textbox()
-vicious.register(gmailwidget, vicious.widgets.gmail, "[Gmail: ${count}]", 60)
-
 -- Create a systray
-mysystray = wibox.widget.systray()
+mysystray = widget({ type = "systray" })
 
--- Battery Widget
-mybat = wibox.widget.textbox()
-vicious.register (mybat, vicious.widgets.bat, "[$1$2%]", 61, "BAT1")
-
-mpdwidget = wibox.widget.textbox()
+mpdwidget = widget({type = "textbox"})
  vicious.register(mpdwidget, vicious.widgets.mpd,
     function (widget, args)
       if   args["{state}"] == "Stop" then return ""
@@ -199,26 +189,43 @@ for s = 1, screen.count() do
                            awful.button({ }, 4, function () awful.layout.inc(layouts, 1) end),
                            awful.button({ }, 5, function () awful.layout.inc(layouts, -1) end)))
     -- Create a taglist widget
-    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.filter.all, mytaglist.buttons)
+    mytaglist[s] = awful.widget.taglist(s, awful.widget.taglist.label.all, mytaglist.buttons)
 
 
     -- Create a tasklist widget
-    mytasklist[s] = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, mytasklist.buttons)
+    mytasklist[s] = awful.widget.tasklist(function(c)
+                                              return awful.widget.tasklist.label.currenttags(c, s)
+                                          end, mytasklist.buttons)
+
 
     -- Create the wibox
     mywibox[s] = awful.wibox({ position = "top", screen = s })
     -- Add widgets to the wibox - order matters
     -- Widgets that are aligned to the left
+    --
+    mywibox[s].widgets = {
+        {
+            mytaglist[s],
+            mypromptbox[s],
+            layout = awful.widget.layout.horizontal.leftright
+        },
+        mylayoutbox[s],
+        s == 1 and mysystray or nil,
+        mpdwidget,
+        memwidget,
+        cpuwidget,
+        mytextclock,
+        mytasklist[s],
+        layout = awful.widget.layout.horizontal.rightleft
+    }
+--[[
     local left_layout = wibox.layout.fixed.horizontal()
     left_layout:add(mytaglist[s])
     left_layout:add(mypromptbox[s])
 
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
-    right_layout:add(volumewidget)
-    right_layout:add(mybat)
     right_layout:add(mpdwidget)
-    right_layout:add(gmailwidget)
     right_layout:add(memwidget)
     right_layout:add(cpuwidget)
     right_layout:add(mytextclock)
@@ -231,6 +238,7 @@ for s = 1, screen.count() do
     layout:set_middle(mytasklist[s])
     layout:set_right(right_layout)
     mywibox[s]:set_widget(layout)
+    ]]--
 end
 -- }}}
 
