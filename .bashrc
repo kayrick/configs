@@ -12,6 +12,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias g='grep'
 alias llrt='ls -lrt'
+alias nvmutt='mutt -F ~/.muttrc.nvidia'
 source /etc/environment
 alias ack=ack-grep
 
