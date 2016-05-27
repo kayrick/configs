@@ -10,6 +10,8 @@
     flog = log --name-status
     treelog =  log --oneline --decorate --all --graph
     d = difftool
+    daylog = log --since=\"1 day ago\"  --author=Kravets
+    weeklog = log --since=\"1 week ago\"  --author=Kravets  --oneline
 [core]
     excludesfile = ~/gitignore
 [push]
