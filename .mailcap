@@ -21,4 +21,4 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document; soffice
 text/x-diff;  cat %s | colordiff;copiousoutput
 text/x-patch; cat %s | colordiff;copiousoutput
 tex/*; cat %s; copiousoutput
-image/*; feh '%s'
+image/*; feh '%s' -.
