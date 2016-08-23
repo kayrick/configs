@@ -1,29 +1,44 @@
-http://blog.llvm.org/feeds/posts/default Main
-http://projecteuler.net/rss2_euler.xml Main
-http://malideveloper.arm.com/feed/ Main
-http://lwn.net/headlines/newrss Main
-https://news.ycombinator.com/rss Main
-http://feeds.feedburner.com/KhronosorgNews Main
-http://www.risk.ru/rss/ Main
-https://www.kernel.org/feeds/kdist.xml Main
-http://lambda-the-ultimate.org/taxonomy/term/1/0/feed Main
-https://www.kernel.org/feeds/all.atom.xml Main
-http://export.arxiv.org/rss/cs.DS Main
-http://phoronix.com/rss.php Main
-http://export.arxiv.org/rss/cs.PL Main
-http://git-blame.blogspot.com/feeds/posts/default Main
-http://www.nvidia.ru/object/rss_nvidia_pressroom_ru.html Main
-http://export.arxiv.org/rss/cs.CC Main
-http://blog.dlib.net/feeds/posts/default Main
-http://export.arxiv.org/rss/cs.FL Main
-http://export.arxiv.org/rss/cs.ET Main
-http://export.arxiv.org/rss/cs.OS Main
-http://www.cbr.ru/scripts/RssCurrency.asp Main
-http://hubicka.blogspot.com/feeds/posts/default Main
-http://troika.mos.ru/ru/news/rss/ Main
-http://www.evilsocket.net/rss/ Main
-https://www.youtube.com/feeds/videos.xml?channel_id=UCOcpUgXosMCIlOsreUfNFiA Main
-https://www.youtube.com/feeds/videos.xml?channel_id=UCIBaDdAbGlFDeS33shmlD0A Main
-https://www.youtube.com/feeds/videos.xml?channel_id=UCLA_DiR1FfKNvjuUpBHmylQ Main
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7tsnGnAeBSgG1f-90vuW5w Main
+http://blog.llvm.org/feeds/posts/default
+http://projecteuler.net/rss2_euler.xml
+http://malideveloper.arm.com/feed/
+http://lwn.net/headlines/newrss
+https://news.ycombinator.com/rss
+http://feeds.feedburner.com/KhronosorgNews
+http://www.risk.ru/rss/
+https://www.kernel.org/feeds/kdist.xml
+http://lambda-the-ultimate.org/taxonomy/term/1/0/feed
+https://www.kernel.org/feeds/all.atom.xml
+http://export.arxiv.org/rss/cs.DS
+http://phoronix.com/rss.php
+http://export.arxiv.org/rss/cs.PL
+http://git-blame.blogspot.com/feeds/posts/default
+http://www.nvidia.ru/object/rss_nvidia_pressroom_ru.html
+http://export.arxiv.org/rss/cs.CC
+http://blog.dlib.net/feeds/posts/default
+http://export.arxiv.org/rss/cs.FL
+http://export.arxiv.org/rss/cs.ET
+http://export.arxiv.org/rss/cs.OS
+http://www.cbr.ru/scripts/RssCurrency.asp
+http://hubicka.blogspot.com/feeds/posts/default
+http://troika.mos.ru/ru/news/rss/
+http://www.evilsocket.net/rss/
+https://www.youtube.com/feeds/videos.xml?channel_id=UCOcpUgXosMCIlOsreUfNFiA
+https://www.youtube.com/feeds/videos.xml?channel_id=UCIBaDdAbGlFDeS33shmlD0A
+https://www.youtube.com/feeds/videos.xml?channel_id=UCLA_DiR1FfKNvjuUpBHmylQ
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7tsnGnAeBSgG1f-90vuW5w
 http://rss.slashdot.org/Slashdot/slashdotMain
+http://nvidianews.nvidia.com/cats/automotive.xml
+http://nvidianews.nvidia.com/cats/mobile.xml
+http://nvidianews.nvidia.com/cats/press_release.xml
+http://feeds.feedburner.com/nvidiablog?format=xml
+http://feeds.bbci.co.uk/news/rss.xml
+http://static.feed.rbc.ru/rbc/internal/rss.rbc.ru/rbc.ru/mainnews.rss
+http://elementy.ru/rss/news
+http://rss.nytimes.com/services/xml/rss/nyt/World.xml
+http://bits.blogs.nytimes.com/feed/
+http://rss.nytimes.com/services/xml/rss/nyt/Technology.xml
+http://rss.nytimes.com/services/xml/rss/nyt/PersonalTech.xml
+http://rss.nytimes.com/services/xml/rss/nyt/Space.xml
+http://rss.nytimes.com/services/xml/rss/nyt/Science.xml
+https://meduza.io/rss/all
+http://www.mountain.ru/rss/
