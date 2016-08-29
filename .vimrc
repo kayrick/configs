@@ -70,5 +70,7 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guicursor+=a:blinkon0
 
+au BufEnter * call matchadd('ErrorMsg', '\%>80v.\+', -1)
+
 let Tlist_WinWidth = 90
 set complete-=i
