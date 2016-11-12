@@ -15,3 +15,9 @@ bind-key k prev
 
 auto-reload no
 reload-time 30
+
+highlight all "Russia" red black bold
+highlight all "Moscow" red black bold
+
+highlight all "nvidia" blue black bold
+highlight all "nvidia" blue black bold

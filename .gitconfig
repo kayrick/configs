@@ -9,9 +9,9 @@
     root = !pwd
     flog = log --name-status
     treelog =  log --oneline --decorate --all --graph
-    d = difftool
-    daylog = log --since=\"1 day ago\"  --author=Kravets
-    weeklog = log --since=\"1 week ago\"  --author=Kravets  --oneline
+    d = difftool -R
+    daylog = log --since=\"1 day ago\"  --author=kravets --oneline
+    weeklog = log --since=\"1 week ago\"  --author=kravets  --oneline
 [core]
     excludesfile = ~/gitignore
 [push]
@@ -21,7 +21,7 @@
 [diff]
     tool = vimdiff
 [difftool]
-    prompt = false
+    prompt = true
 [pull]
     rebase = true
 [include]
