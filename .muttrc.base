@@ -123,8 +123,8 @@ bind pager l sidebar-open
 
 set sidebar_width=25
 set sidebar_visible=yes
-set sidebar_shortpath=no
-set sidebar_sort=yes
+set sidebar_short_path=no
+set sidebar_sort_method=alpha
 
 bind index,pager I imap-fetch-mail
 
