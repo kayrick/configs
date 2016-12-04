@@ -4,14 +4,8 @@
     branch = auto
 [alias]
     st = status
-    stu = status -uno
-    cm = commit -v
-    root = !pwd
-    flog = log --name-status
     treelog =  log --oneline --decorate --all --graph
     d = difftool -R
-    daylog = log --since=\"1 day ago\"  --author=kravets --oneline
-    weeklog = log --since=\"1 week ago\"  --author=kravets  --oneline
 [core]
     excludesfile = ~/gitignore
 [push]

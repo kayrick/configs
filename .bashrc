@@ -10,7 +10,6 @@ alias ls='ls -CF --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
-alias g='grep'
 alias llrt='ls -lrt'
 alias nvmutt='mutt -F ~/.muttrc.nvidia'
 source /etc/environment
@@ -18,10 +17,6 @@ source /etc/environment
 [ -e /etc/profile ] && source /etc/profile
 
 PATH=~/bin:$PATH:/sbin/
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-export STEAM_RUNTIME=1
-export AWT_TOOLKIT="MToolkit"
 
 [ -e .`hostname` ] && source .`hostname`
 

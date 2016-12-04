@@ -41,22 +41,10 @@ then
   source /etc/zsh_command_not_found
 fi
  
-# Allow for functions in the prompt.
-setopt PROMPT_SUBST
-
-# Autoload zsh functions.
-fpath=(~/.zsh/functions $fpath)
-autoload -U ~/.zsh/functions/*(:t)
-
-# Enable auto-execution of functions.
-typeset -ga preexec_functions
-typeset -ga precmd_functions
-typeset -ga chpwd_functions
-
 compinit
 promptinit; 
 
-PROMPT='%B%F{green}%n@%m%k %B%F{blue}%~ %b%f%k$(prompt_git_info)%B%F{blue}%#%b%f%k '
+PROMPT='%B%F{green}%n@%m%k %B%F{blue}%~ %b%f%k%B%F{blue}%#%b%f%k '
 
 export ALTERNATE_EDITOR=$EDITOR
 
