@@ -29,24 +29,17 @@ set imsearch=0
 
 highlight lCursor guifg=NONE guibg=Cyan
 
-let mapleader = ","
-
 set cinkeys=0{,0},0),0#,!<Tab>,;,:,o,O,e
 set indentkeys=!<Tab>,o,O
 
 map gr :grep <cword> %:p:h
-map E :e %:p:h
 set statusline+=%F\ :+%l\ %c
 
 map <C-o> :cn<CR>
 map <C-k> :cp<CR>
-map <F2> :make<CR>
 map <C-l> :set number!<CR>
 map <C-Up> :next<CR>
 map <C-Down> :previous<CR>
-map <F3> :TlistToggle<CR>
-map <F4> :BufExplorer<CR>
-map <F5> :BufExplorerHorizontalSplit<CR>
 
 au BufRead,BufNewFile *.g set syntax=antlr3
 au BufRead,BufNewFile *.cu set filetype=cpp
@@ -62,8 +55,6 @@ set hlsearch
 
 let g:localrc_filename = '.lvimrc'
 let g:localvimrc_ask = 0
-
-let Tex_UsePython=0
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar

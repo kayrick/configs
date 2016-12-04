@@ -78,8 +78,8 @@ set index_format="%4C %Z %{%b %d} %-50.50f (%?l?%4l&%4c?) %s"
 
 subscribe gcc@gcc.gnu.org gcc-patches@gcc.gnu.org llvmdev@cs.uiuc.edu libc-help@sourceware.org
 
-macro index,pager \cl "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
-macro attach,compose \cl "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro index,pager \cl "<pipe-message> urlview<Enter>" "call urlview to extract URLs out of a message"
+macro attach,compose \cl "<pipe-entry> urlview<Enter>" "call urlview to extract URLs out of a message"
 
 macro index,pager \cb "<pipe-message> w3m -T text/html<Enter>" "call w3m to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> w3m -T text/html<Enter>" "call w3m to extract URLs out of a message"
