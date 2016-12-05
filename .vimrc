@@ -53,9 +53,6 @@ set pastetoggle=<C-e>
 set spelllang=en,ru
 set hlsearch
 
-let g:localrc_filename = '.lvimrc'
-let g:localvimrc_ask = 0
-
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
@@ -69,3 +66,4 @@ let Tlist_WinWidth = 90
 set complete-=i
 
 set wrap
+set noautoread
