@@ -65,5 +65,7 @@ au BufEnter *.h call matchadd('ErrorMsg', '\%>80v.\+', -1)
 let Tlist_WinWidth = 90
 set complete-=i
 
+set cinoptions=g0:0(0
+
 set wrap
 set noautoread
