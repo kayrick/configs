@@ -305,82 +305,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "[", function () awful.layout.inc(layouts, -1) end),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
-
-    awful.key({ modkey }, "F4", function ()
-    awful.prompt.run({ prompt = "Manual: " }, mypromptbox[mouse.screen].widget,
-    --  Use GNU Emacs for manual page display
-    --  function (page) awful.util.spawn("emacsclient --eval '(manual-entry \"'" .. page .. "'\")'", false) end,
-    --  Use the KDE Help Center for manual page display
-    --  function (page) awful.util.spawn("khelpcenter man:" .. page, false) end,
-    --  Use the terminal emulator for manual page display
-        function (page) awful.util.spawn("uxterm -e man " .. page, false) end,
-        function(cmd, cur_pos, ncomp)
-            local pages = {}
-            local m = 'IFS=: && find $(manpath||echo "$MANPATH") -type f -printf "%f\n"| cut -d. -f1'
-            local c, err = io.popen(m)
-            if c then while true do
-                local manpage = c:read("*line")
-                if not manpage then break end
-                if manpage:find("^" .. cmd:sub(1, cur_pos)) then
-                    table.insert(pages, manpage)
-                end
-              end
-              c:close()
-            else io.stderr:write(err) end
-            if #cmd == 0 then return cmd, cur_pos end
-            if #pages == 0 then return end
-            while ncomp > #pages do ncomp = ncomp - #pages end
-            return pages[ncomp], cur_pos
-        end)
-      end),
-
-    awful.key({ modkey,           }, "F2",
-              function ()
-                  awful.prompt.run({ prompt = "ssh: " },
-                  mypromptbox[mouse.screen].widget,
-                  function(h) awful.util.spawn(terminal .. " -e ssh " .. h) end,
-                  function(cmd, cur_pos, ncomp)
-                      -- get hosts and hostnames
-                      local hosts = {}
-                      f = io.popen("sed 's/#.*//;/[ \\t]*Host\\(Name\\)\\?[ \\t]\\+/!d;s///;/[*?]/d' " .. os.getenv("HOME") .. "/.ssh/config | sort")
-                      for host in f:lines() do
-                          table.insert(hosts, host)
-                      end
-                      f:close()
-                      -- abort completion under certain circumstances
-                      if cur_pos ~= #cmd + 1 and cmd:sub(cur_pos, cur_pos) ~= " " then
-                          return cmd, cur_pos
-                      end
-                      -- match
-                      local matches = {}
-                      table.foreach(hosts, function(x)
-                          if hosts[x]:find("^" .. cmd:sub(1, cur_pos):gsub('[-]', '[-]')) then
-                              table.insert(matches, hosts[x])
-                          end
-                      end)
-                      -- if there are no matches
-                      if #matches == 0 then
-                          return cmd, cur_pos
-                      end
-                      -- cycle
-                      while ncomp > #matches do
-                          ncomp = ncomp - #matches
-                      end
-                      -- return match and position
-                      return matches[ncomp], #matches[ncomp] + 1
-                  end,
-                  awful.util.getdir("cache") .. "/ssh_history")
-              end),
-
-    awful.key({ modkey }, "F5", function ()
-        awful.prompt.run({ prompt = "Web search: " }, mypromptbox[mouse.screen].widget,
-            function (command)
-                awful.util.spawn("firefox 'http://google.com/search?q="..command.."'", false)
-                -- Switch to the web tag, where Firefox is, in this case tag 3
-                if tags[mouse.screen][3] then awful.tag.viewonly(tags[mouse.screen][3]) end
-            end)
-    end)
+    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end)
 )
 
 clientkeys = awful.util.table.join(
@@ -451,16 +376,6 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-                     { rule = { class = "Mendeleydesktop" },
-                     properties = { tag = tags[1][5] } },
-                     { rule = { class = "Sonata" },
-                     properties = { tag = tags[1][9] } },
-                     { rule = { instance = "Mail" },
-                     properties = { tag = tags[1][8] } },
-                     { rule = { class = "Grooveshark" },
-                     properties = { tag = tags[1][9] } },
-                     { rule = { class = "Eclipse" },
-                     properties = { tag = tags[1][6] } },
                      { rule = { class = "feh" },
                      properties = { floating = true } },
 }
