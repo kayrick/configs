@@ -3,6 +3,8 @@
 set noautocomplete
 set gui=noaddons,nobookmarks,nomenu,nonavigation,tabs
 
-autocmd LocationChange .* javascript modes.passAllKeys = /eumail\.nvidia\.com/.test(buffer.URL)
+autocmd LocationChange .* js modes.passAllKeys = false
+autocmd LocationChange eumail\.nvidia\.com js modes.passAllKeys = true
+autocmd LocationChange drive\.google\.com js modes.passAllKeys = true
 
 " vim: set ft=vimperator:
