@@ -1,20 +1,15 @@
-http://blog.llvm.org/feeds/posts/default
 http://projecteuler.net/rss2_euler.xml
 http://malideveloper.arm.com/feed/
 http://lwn.net/headlines/newrss
 https://news.ycombinator.com/rss
 http://feeds.feedburner.com/KhronosorgNews
 http://www.risk.ru/rss/
-https://www.kernel.org/feeds/kdist.xml
-http://lambda-the-ultimate.org/taxonomy/term/1/0/feed
-https://www.kernel.org/feeds/all.atom.xml
 http://export.arxiv.org/rss/cs.DS
 http://phoronix.com/rss.php
 http://export.arxiv.org/rss/cs.PL
 http://git-blame.blogspot.com/feeds/posts/default
 http://www.nvidia.ru/object/rss_nvidia_pressroom_ru.html
 http://export.arxiv.org/rss/cs.CC
-http://blog.dlib.net/feeds/posts/default
 http://export.arxiv.org/rss/cs.FL
 http://export.arxiv.org/rss/cs.ET
 http://export.arxiv.org/rss/cs.OS
@@ -23,8 +18,6 @@ http://troika.mos.ru/ru/news/rss/
 https://www.youtube.com/feeds/videos.xml?channel_id=UCOcpUgXosMCIlOsreUfNFiA
 https://www.youtube.com/feeds/videos.xml?channel_id=UCIBaDdAbGlFDeS33shmlD0A
 https://www.youtube.com/feeds/videos.xml?channel_id=UCLA_DiR1FfKNvjuUpBHmylQ
-https://www.youtube.com/feeds/videos.xml?channel_id=UC7tsnGnAeBSgG1f-90vuW5w
-https://www.youtube.com/feeds/videos.xml?channel_id=UCUllb83Lugbka-rvF6Nutxg
 http://rss.slashdot.org/Slashdot/slashdotMain
 http://nvidianews.nvidia.com/cats/automotive.xml
 http://nvidianews.nvidia.com/cats/mobile.xml
@@ -34,6 +27,4 @@ http://www.mountain.ru/rss/
 http://www.nasa.gov/rss/dyn/webb_features.rss
 http://hubblesite.org/newscenter/newscenter_rss.php
 http://acomics.ru/~spascoma/rss
-http://acomics.ru/~elf-v-kedah/rss
-http://turnoff.us/feed.xml
 https://github.com/blog/all.atom

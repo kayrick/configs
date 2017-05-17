@@ -5,7 +5,7 @@
 [alias]
     st = status
     treelog =  log --oneline --decorate --all --graph
-    d = difftool -R
+    d = difftool
 [core]
     excludesfile = ~/gitignore
 [push]
