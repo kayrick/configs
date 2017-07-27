@@ -26,3 +26,5 @@
     smtpserver = /usr/bin/msmtp
 [credential]
     helper = store
+[http]
+	sslverify = false
