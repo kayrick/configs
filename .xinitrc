@@ -12,6 +12,8 @@ setxkbmap -layout 'us,ru' -option 'grp:caps_toggle,grp_led:scroll'
 
 xbindkeys -f ${XBINDKEYS_CONFIG} &
 
+xrdb ~/.Xdefaults
+
 mpd ~/.mpd.conf
 mpc stop
 
