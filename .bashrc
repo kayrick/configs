@@ -1,5 +1,5 @@
 export EDITOR=vim
-export BROWSER=firefox
+export BROWSER=google-chrome-stable
 export VISUAL=$EDITOR
 export LANG=en_US.UTF-8
 XTERM_LOCALE=$LANG
