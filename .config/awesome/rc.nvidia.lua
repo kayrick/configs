@@ -259,12 +259,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "q", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "e", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore),
-    awful.key({ modkey, }, "f", function () run_or_raise("firefox", { class = "Firefox" }) end),
-    awful.key({ modkey, }, "x", function () run_or_raise("mendeleydesktop", { class = "Mendeleydesktop" }) end),
-    awful.key({ modkey, }, "j", function () run_or_raise("pidgin", {class = "Pidgin", name = "Buddy List" }) end),
-    awful.key({ modkey, }, "i", function () run_or_raise("sonata", {class = "Sonata"}) end),
-    awful.key({ modkey, }, "w", function () run_or_raise("", { class = "Evince" }) end),
-    awful.key({ modkey, }, "v", function () run_or_raise("", { class = "Eclipse" }) end),
+    awful.key({ modkey, }, "f", function () run_or_raise("chromium-browser", { class = "Chromium-browser" }) end),
 
     awful.key({ modkey, }, "t",
     function ()
