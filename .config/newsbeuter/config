@@ -1,7 +1,7 @@
 show-read-articles no
 show-read-feeds no
 
-browser firefox
+browser $BROWSER
 refresh-on-startup no
 always-display-description yes
 delete-read-articles-on-quit no
