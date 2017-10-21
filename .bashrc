@@ -20,4 +20,7 @@ PATH=~/bin:$PATH:/sbin/
 
 [ -e .`hostname` ] && source .`hostname`
 
+GPG_TTY=$(tty)
+export GPG_TTY
+
 export PATH

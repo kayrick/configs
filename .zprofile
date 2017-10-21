@@ -7,11 +7,4 @@
 # the default umask is set in /etc/profile
 #umask 022
 
-gox ()
-{
-  startx -- -nolisten tcp > ~/.x.log 2>&1 &
-  sleep 1
-  logout
-}
-
 source ~/.bash_login
