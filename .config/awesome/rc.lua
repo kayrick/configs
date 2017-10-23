@@ -166,15 +166,8 @@ mytextclock = wibox.widget.textclock()
 volumewidget = wibox.widget.textbox()
 vicious.register(volumewidget, vicious.widgets.volume, "[volume: $1% $2]", 2, "Master")
 
-gmailwidget = wibox.widget.textbox()
-vicious.register(gmailwidget, vicious.widgets.gmail, "[Gmail: ${count}]", 60)
-
 -- Create a systray
 mysystray = wibox.widget.systray()
-
--- Battery Widget
--- mybat = wibox.widget.textbox()
--- vicious.register (mybat, vicious.widgets.bat, "[$1$2%]", 61, "BAT1")
 
 mpdwidget = wibox.widget.textbox()
  vicious.register(mpdwidget, vicious.widgets.mpd,
@@ -282,9 +275,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             volumewidget,
-            --mybat,
             mpdwidget,
-            gmailwidget,
             cpuwidget,
             memwidget,
             mytextclock,
