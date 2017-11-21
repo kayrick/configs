@@ -121,7 +121,7 @@ function run_or_raise(cmd, properties)
          c = matched_clients[findex+1]
       end
       local ctags = c:tags()
-      if table.getn(ctags) == 0 then
+      if table[ctags] == 0 then
          -- ctags is empty, show client on current tag
          local curtag = awful.tag.selected()
          awful.client.movetotag(curtag, c)
@@ -308,7 +308,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "e", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey, "Control" }, "q", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "e", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey, }, "f", function () run_or_raise("google-chrome-stable", { class = "Google-chrome" }) end),
+    awful.key({ modkey, }, "f", function () run_or_raise("sh -c '${BROWSER}'", { class = "browser" }) end),
 
     awful.key({ modkey,           }, "j",
         function ()
