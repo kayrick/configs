@@ -308,7 +308,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "e", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey, "Control" }, "q", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "e", function () awful.screen.focus_relative(-1) end),
-    awful.key({ modkey, }, "f", function () run_or_raise("sh -c '${BROWSER}'", { class = "browser" }) end),
+    awful.key({ modkey, }, "f", function () run_or_raise("sh -c '${BROWSER}'", { class = "chrom" }) end),
 
     awful.key({ modkey,           }, "j",
         function ()
