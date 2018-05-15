@@ -14,7 +14,4 @@ xbindkeys -f ${XBINDKEYS_CONFIG} &
 
 xrdb ~/.Xdefaults
 
-mpd ~/.mpd.conf
-mpc stop
-
 exec /usr/bin/awesome --config ${AWESOME_CONFIG}
