@@ -169,15 +169,6 @@ vicious.register(volumewidget, vicious.widgets.volume, "[volume: $1% $2]", 2, "M
 -- Create a systray
 mysystray = wibox.widget.systray()
 
-mpdwidget = wibox.widget.textbox()
- vicious.register(mpdwidget, vicious.widgets.mpd,
-    function (widget, args)
-      if   args["{state}"] == "Stop" then return ""
-      else return '[<span color="white">MPD:</span> '..
-             args["{Artist}"]..' - '.. args["{Title}"] .. ']'
-      end
-    end)
-
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
                     awful.button({ }, 1, function(t) t:view_only() end),
@@ -275,7 +266,6 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             volumewidget,
-            mpdwidget,
             cpuwidget,
             memwidget,
             mytextclock,
