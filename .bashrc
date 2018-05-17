@@ -11,7 +11,6 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias llrt='ls -lrt'
-alias nvmutt='mutt -F ~/.muttrc.nvidia'
 source /etc/environment
 
 [ -e /etc/profile ] && source /etc/profile
@@ -19,8 +18,3 @@ source /etc/environment
 PATH=~/bin:$PATH:/sbin/
 
 [ -e .`hostname` ] && source .`hostname`
-
-GPG_TTY=$(tty)
-export GPG_TTY
-
-export PATH

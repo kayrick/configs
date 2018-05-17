@@ -1,15 +1,3 @@
-"mpc next"
-Mod4 + Right
-
-"mpc prev"
-Mod4 + Left
-
-"mpc stop"
-Mod4 + Down
-
-"mpc toggle"
-Mod4 + Up
-
 "amixer -D pulse set Master Playback 10%-"
 m:0x40 + comma
 
@@ -19,5 +7,5 @@ m:0x40 + period
 "amixer -D pulse set Master Playback Switch toggle"
 m:0x40 + slash
 
-"mpc stop; xlock -mode blank -font '-xos4-terminus-*-*-*-*-*-*-*-*-*-*-*-*' -echokeys -echokey '*'"
+"xlock -mode blank -font '-xos4-terminus-*-*-*-*-*-*-*-*-*-*-*-*' -echokeys -echokey '*'"
 Mod4 + b
