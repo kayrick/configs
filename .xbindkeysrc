@@ -1,7 +1,7 @@
-"amixer -c 0 -- set Master playback 10%-"
+"amixer -D pulse set Master Playback 10%-"
 m:0x40 + comma
 
-"amixer -c 0 -- set Master playback 10%+"
+"amixer -D pulse set Master Playback 10%+"
 m:0x40 + period
 
 "amixer -D pulse set Master Playback Switch toggle"
