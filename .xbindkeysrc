@@ -7,5 +7,5 @@ m:0x40 + period
 "amixer -D pulse set Master Playback Switch toggle"
 m:0x40 + slash
 
-"xlock -mode blank -font '-xos4-terminus-*-*-*-*-*-*-*-*-*-*-*-*' -echokeys -echokey '*'"
+"xtrlock -b"
 Mod4 + b
