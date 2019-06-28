@@ -1,7 +1,6 @@
 xset r rate 300 40
 
 parcellite &
-which dropbox && dropbox start
 
 AWESOME_CONFIG=$HOME/.config/awesome/rc.lua
 XBINDKEYS_CONFIG=${HOME}/.xbindkeysrc
